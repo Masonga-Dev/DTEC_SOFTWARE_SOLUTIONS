@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 const About = () => (
   <section id="about" style={{ background: '#fff', color: '#0A3D62', padding: '4rem 0' }}>
@@ -10,7 +11,7 @@ const About = () => (
           <p>
             DTEC Software Solutions is dedicated to delivering innovative, reliable, and scalable software products and services. Our mission is to empower businesses with technology that drives growth and efficiency.
           </p>
-          <Button variant="info" className="text-white mt-3" style={{ background: '#00B8D9' }}>
+          <Button as={Link} to="/about" variant="info" className="text-white mt-3" style={{ background: '#00B8D9' }}>
             Learn More About Us
           </Button>
         </Col>

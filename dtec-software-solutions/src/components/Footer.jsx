@@ -22,7 +22,7 @@ const Footer = () => (
         </Col>
         <Col md={4} className="mb-3">
           <h6>Contact</h6>
-          <p>Email: info@dtecsoft.com<br />Phone: +123 456 7890</p>
+          <p>Email: Sales@dtec.rw<br />Phone: +25078088777</p>
           <div className="d-flex gap-3">
             <a href="#" className="text-white"><FaFacebook size={22} /></a>
             <a href="#" className="text-white"><FaTwitter size={22} /></a>

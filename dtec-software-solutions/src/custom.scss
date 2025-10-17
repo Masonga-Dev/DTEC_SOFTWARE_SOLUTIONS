@@ -1,5 +1,20 @@
-@import 'bootstrap/scss/bootstrap';
-
+// Office contact links hover effect
+.office-contact a,
+.office-contact a[href^="mailto:"],
+.office-contact a[href^="tel:"] {
+  transition: color 0.2s, background 0.2s;
+  color: #0A3D62;
+  text-decoration: none;
+  border-radius: 0.3em;
+  padding: 0.1em 0.3em;
+}
+.office-contact a:hover, .office-contact a:focus,
+.office-contact a[href^="mailto:"]:hover, .office-contact a[href^="mailto:"]:focus,
+.office-contact a[href^="tel:"]:hover, .office-contact a[href^="tel:"]:focus {
+  color: #fff !important;
+  background: linear-gradient(135deg, #d4145a, #fbb03b);
+  text-decoration: none;
+}
 $primary: #0A3D62;
 $secondary: #00B8D9;
 $body-bg: #f8f9fa;
@@ -11,4 +26,29 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Poppins', 'Montserrat', Arial, sans-serif;
+}
+
+
+footer a, footer a[href^="mailto:"], footer a[href^="tel:"] {
+  transition: color 0.2s, background 0.2s;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0.3em;
+  padding: 0.1em 0.3em;
+}
+footer a:hover, footer a:focus,
+footer a[href^="mailto:"]:hover, footer a[href^="mailto:"]:focus,
+footer a[href^="tel:"]:hover, footer a[href^="tel:"]:focus {
+  color: #fff !important;
+  background: linear-gradient(135deg, #d4145a, #fbb03b);
+  text-decoration: none;
+}
+
+// Product card hover effects
+.product-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(10,61,98,0.15);
 }

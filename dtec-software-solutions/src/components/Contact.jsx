@@ -79,11 +79,25 @@ const Contact = () => {
   };
 
   return (
-  <section id="contact" style={{ background: 'linear-gradient(90deg, #0A3D62 60%, #00B8D9 100%)', color: '#fff', padding: '2rem 0' }}>
+  <>
+    {/* About Us band just below navbar */}
+    <div className="contact-about-wrapper py-4">
+      <Container>
+        <div className="contact-about-card p-4">
+          <div className="contact-about-inner text-center">
+            <h3 className="fw-bold mb-2">Contact Us</h3>
+            <p className="mb-0 text-muted">At DTEC Software Solutions Ltd, we value every opportunity to connect with our clients, partners, and future collaborators. Whether you have questions about our services, need technical support, or want to discuss a potential project, our team is always ready to assist you.
+Reach out to us anytime  we’d love to hear from you and help turn your ideas into powerful digital solutions.</p>
+          </div>
+        </div>
+      </Container>
+    </div>
+
+    <section id="contact" style={{ background: 'linear-gradient(90deg, #0A3D62 60%, #00B8D9 100%)', color: '#fff', padding: '2rem 0' }}>
     <Container>
       <Row className="g-4">
         <Col lg={6} className="mb-4 mb-lg-0">
-          <Card style={{ ...officeCardStyle, minHeight: 'auto', maxWidth: '480px', padding: '1rem' }} className="border-0">
+          <Card style={{ ...officeCardStyle, minHeight: 'auto', maxWidth: '480px', padding: '1rem' }} className="border-0 contact-form-card">
             <h2 className="fw-bold mb-4" style={{ color: '#0A3D62' }}>Contact Us</h2>
             {error && <Alert variant="danger" className="mb-3">{error}</Alert>}
             <Form onSubmit={handleSubmit}>
@@ -151,6 +165,7 @@ const Contact = () => {
       </Row>
     </Container>
   </section>
+  </>
   );
 };
 

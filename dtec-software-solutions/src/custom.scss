@@ -86,3 +86,40 @@ footer a[href^="tel:"]:hover, footer a[href^="tel:"]:focus {
   transform: translateY(-4px);
   box-shadow: 0 10px 24px rgba(10,61,98,0.15);
 }
+
+/* Contact page specific styles (About band + cards) */
+.contact-about-wrapper {
+  background: #f3f6f8; /* light gray-white band */
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+}
+.contact-about-card {
+  /* Make the band flat so it doesn't show a white card background */
+  background: transparent;
+  border-radius: 0.25rem;
+  box-shadow: none;
+  color: #0A3D62;
+}
+
+.contact-about-inner {
+  max-width: 880px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* Tweak existing office card style to match screenshot */
+.office-contact {
+  background: #fff !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 6px 18px rgba(10,61,98,0.06) !important;
+  color: #0A3D62;
+}
+
+/* Form card styling on contact page */
+.contact-form-card {
+  background: #fff;
+  color: #0A3D62;
+  border-radius: 0.75rem;
+  box-shadow: 0 6px 18px rgba(10,61,98,0.06);
+}

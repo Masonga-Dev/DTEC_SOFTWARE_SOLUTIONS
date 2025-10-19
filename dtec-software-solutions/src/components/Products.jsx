@@ -11,7 +11,11 @@ const Products = ({ sample = false }) => {
   return (
     <section id="products" style={{ background: '#fff', padding: '4rem 0' }}>
       <Container>
-        <h2 className="fw-bold text-center mb-5" style={{ color: '#0A3D62' }}>Our Products</h2>
+        <h2 className="fw-bold text-center mb-2" style={{ color: '#0A3D62' }}>Our Products</h2>
+        <p className="text-center mb-5" style={{ maxWidth: 900, margin: '0 auto' }}>
+          Explore our suite of reliable, scalable, and user-friendly products designed to streamline
+          operations and accelerate digital transformation across industries.
+        </p>
         <Row>
           {visibleProducts.map((product, idx) => (
             <Col md={4} className="mb-4" key={idx}>

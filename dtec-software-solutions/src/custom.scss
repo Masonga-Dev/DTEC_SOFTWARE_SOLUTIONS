@@ -1,3 +1,37 @@
+.service-card {
+  transition: transform 220ms ease, box-shadow 220ms ease;
+}
+.service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.12);
+}
+.service-card .service-icon {
+  display: inline-block;
+  transition: transform 300ms ease;
+}
+.service-card:hover .service-icon {
+  animation: dtec-spin 1200ms linear infinite;
+}
+
+@keyframes dtec-spin {
+  0% { transform: rotate(0deg) scale(1.05); }
+  50% { transform: rotate(180deg) scale(1.05); }
+  100% { transform: rotate(360deg) scale(1.05); }
+}
+
+/* About objectives card consistency */
+.about-objective-card {
+  height: 100%;
+}
+.about-objective-card .card-body {
+  padding: 1.5rem;
+}
+
+/* Navigation active state */
+.navbar-nav .nav-link.active {
+  color: #00B8D9 !important;
+  font-weight: 600;
+}
 // Office contact links hover effect
 .office-contact a,
 .office-contact a[href^="mailto:"],

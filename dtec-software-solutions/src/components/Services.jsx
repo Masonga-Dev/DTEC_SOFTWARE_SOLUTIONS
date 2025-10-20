@@ -22,7 +22,21 @@ const Services = () => {
   };
 
   return (
-    <section id="services" style={{ background: '#f8f9fa', padding: '4rem 0' }}>
+    <section id="services" style={{ background: '#f8f9fa', padding: '0 0 4rem 0' }}>
+      <div className="service-hero-section">
+        <div className="hero-video-section">
+          <video className="hero-video" autoPlay muted loop playsInline>
+            <source src="/images/service.mp4" type="video/mp4" />
+            Your browser does not support HTML5 video.
+          </video>
+          <div className="hero-overlay" />
+          <div className="hero-content">
+            <h1 className="hero-title fw-bold">Our Services</h1>
+            <p className="hero-desc">We deliver industry-grade services: custom software, cloud migration, maintenance & support, and more.</p>
+          </div>
+        </div>
+      </div>
+
       <Container>
         <h2 className="fw-bold text-center mb-3" style={{ color: '#0A3D62' }}>Our Services</h2>
         <p className="text-center mb-5" style={{ maxWidth: 900, margin: '0 auto' }}>

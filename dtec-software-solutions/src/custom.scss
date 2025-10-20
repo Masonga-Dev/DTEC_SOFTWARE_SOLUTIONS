@@ -87,6 +87,62 @@ footer a[href^="tel:"]:hover, footer a[href^="tel:"]:focus {
   box-shadow: 0 10px 24px rgba(10,61,98,0.15);
 }
 
+/* Support for navbar static vs fixed-top (hero present) */
+.floating-navbar.static {
+  position: static !important;
+  background: transparent;
+}
+.floating-navbar.fixed-top {
+  position: fixed !important;
+}
+
+/* Alternating product rows (zig-zag) */
+.products-list {
+  display: flex;
+  flex-direction: column;
+}
+.product-row {
+  gap: 2rem;
+  align-items: center;
+}
+.product-row.reverse {
+  flex-direction: column-reverse;
+}
+.product-image, .product-info {
+  flex: 1 1 50%;
+}
+.product-hero-img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 0.75rem;
+}
+.product-info h3 {
+  color: $primary;
+}
+
+@media (min-width: 768px) {
+  .product-row {
+    display: flex;
+    flex-direction: row;
+  }
+  .product-row.reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+@media (max-width: 767px) {
+  .product-row {
+    flex-direction: column;
+  }
+  .product-row.reverse {
+    flex-direction: column-reverse;
+  }
+  .product-hero-img {
+    height: 220px;
+  }
+}
+
 /* Contact page specific styles (About band + cards) */
 .contact-about-wrapper {
   background: #f3f6f8; /* light gray-white band */
@@ -107,6 +163,206 @@ footer a[href^="tel:"]:hover, footer a[href^="tel:"]:focus {
   margin-right: auto;
   text-align: center;
 }
+
+/* Floating navbar: transparent over hero, becomes solid on scroll */
+.floating-navbar {
+  width: 100%;
+  transition: background-color 300ms ease-in-out, box-shadow 300ms ease-in-out, padding 200ms ease-in-out;
+  z-index: 1050; /* above content */
+}
+
+.floating-navbar.top {
+  /* Use a subtle dark translucent overlay so white text is readable on hero images/videos */
+  background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.15));
+  backdrop-filter: blur(6px); /* soft blur like Netguru hero navbar */
+}
+
+.floating-navbar.top .nav-link,
+.floating-navbar.top .navbar-brand-text,
+.floating-navbar.top .quote-btn {
+  color: #fff !important;
+}
+
+/* Toggler / hamburger in top state should be visible on hero */
+.floating-navbar.top .navbar-toggler {
+  border-color: rgba(255,255,255,0.35);
+}
+.floating-navbar.top .navbar-toggler-icon {
+  filter: invert(1) brightness(2);
+}
+
+.floating-navbar.scrolled {
+  background: #fff;
+  box-shadow: 0 6px 18px rgba(10,61,98,0.08);
+}
+
+.floating-navbar.scrolled .nav-link,
+.floating-navbar.scrolled .navbar-brand-text,
+.floating-navbar.scrolled .quote-btn {
+  color: #0A3D62 !important;
+}
+
+.floating-navbar .nav-link {
+  transition: color 200ms ease;
+}
+
+/* Uppercase, spaced nav links (Netguru-like) */
+.floating-navbar .nav-link {
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.875rem;
+  padding: 0.4rem 0.6rem;
+}
+.floating-navbar .nav-link:hover {
+  text-decoration: none;
+  position: relative;
+}
+.floating-navbar .nav-link::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -6px;
+  width: 0;
+  height: 2px;
+  background: #00B8D9;
+  transition: width 220ms ease;
+}
+.floating-navbar .nav-link:hover::after,
+.floating-navbar .nav-link.active::after {
+  width: 36px;
+}
+
+.quote-btn {
+  background: transparent !important;
+  border: 1px solid rgba(255,255,255,0.6);
+  color: #fff !important;
+}
+
+.quote-btn.scrolled {
+  background: #00B8D9 !important;
+  border-color: #00B8D9 !important;
+  color: #fff !important;
+}
+
+/* CTA pill style */
+.quote-btn {
+  border-radius: 999px !important;
+  padding: 0.45rem 0.9rem;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.12);
+}
+
+/* Fullpage hero video section */
+.hero-video-section {
+  position: relative;
+  width: 100%;
+  height: 100vh; /* full viewport height */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.hero-video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: auto;
+  height: 100%;
+  min-width: 100%;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  z-index: 1;
+}
+.hero-cta .btn {
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.98);
+}
+.hero-cta-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: #fff;
+}
+.hero-cta-arrow .arrow {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.12);
+  padding: 6px;
+}
+.hero-cta-arrow .hero-cta-label {
+  display: inline-block;
+  padding: 0.45rem 0.9rem;
+  background: rgba(255,255,255,0.9);
+  color: #0A3D62;
+  border-radius: 8px;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateX(-8px);
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+.hero-cta-arrow:hover .hero-cta-label,
+.hero-cta-arrow:focus .hero-cta-label {
+  opacity: 1;
+  transform: translateX(0);
+}
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(8,35,58,0.5) 0%, rgba(10,61,98,0.35) 60%, rgba(0,0,0,0.25) 100%);
+  z-index: 2;
+}
+.hero-content {
+  position: relative;
+  z-index: 3;
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  color: #fff;
+}
+/* Product hero: slightly tighter content and contrast for the products page */
+.product-hero-section .hero-content {
+  max-width: 1100px;
+  padding: 2rem 1rem;
+}
+.product-hero-section .hero-title { font-size: 3rem; }
+.product-hero-section .hero-desc { font-size: 1.05rem; max-width: 900px; }
+.hero-heading-wrap {
+  /* Both title and description slide from right to left with a small stagger */
+  display: block;
+}
+.hero-title {
+  font-size: 3.4rem;
+  line-height: 1.05;
+  margin-bottom: 0.8rem;
+  animation: slideFromRight 800ms ease both;
+  animation-delay: 120ms;
+}
+.hero-desc {
+  font-size: 1.1rem;
+  max-width: 820px;
+  margin: 0 auto 1.2rem;
+  animation: slideFromRight 1000ms ease both;
+  animation-delay: 300ms;
+}
+
+@keyframes slideFromRight {
+  from { transform: translateX(30px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Small screens adjustments */
+@media (max-width: 768px) {
+  .hero-title { font-size: 2rem; }
+  .hero-desc { font-size: 1rem; }
+}
+
+/* Add top padding to body content when navbar is fixed to avoid overlap */
+/* Removed global body padding-top so navbar can sit visually over hero sections.
+   If you want content under the navbar to be offset, add a page-specific spacer instead. */
 
 /* Tweak existing office card style to match screenshot */
 .office-contact {

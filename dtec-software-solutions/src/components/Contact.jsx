@@ -75,25 +75,25 @@ const Contact = () => {
 
   return (
     <>
-      {/* Two-column intro band at the top */}
-      <Container className="py-3">
-        <div className="pages-section">
-          <div className="row align-items-start">
-            <div className="col-md-4 pages-title-col">
-              <h2 className="pages-title fw-bold">Contact Us</h2>
-              <div className="pages-underline" />
-            </div>
-            <div className="col-md-8 pages-desc-col">
-              <p className="pages-desc mb-0 text-muted">
-                At DTEC Software Solutions Ltd, we value every opportunity to connect with our clients, partners, and future collaborators. Whether you have questions about our services, need technical support, or want to discuss a potential project, our team is always ready to assist you.
-                Reach out to us anytime — we’d love to hear from you and help turn your ideas into powerful digital solutions.
+      {/* intro moved into hero overlay below */}
+
+      <section id="contact" style={{ background: '#0A3D62', color: '#fff', padding: '0 0 2rem' }}>
+        {/* Contact hero video (C.mp4) */}
+        <div className="contact-hero-section">
+          <div className="hero-video-section">
+            <video className="hero-video" autoPlay muted loop playsInline>
+              <source src="/images/C.mp4" type="video/mp4" />
+              Your browser does not support HTML5 video.
+            </video>
+            <div className="hero-overlay" />
+            <Container className="hero-content text-center py-5" style={{ maxWidth: 1000 }}>
+              <h1 className="hero-title fw-bold">Contact Us</h1>
+              <p className="hero-desc mb-0" style={{ color: '#f1f5f7' }}>
+                At DTEC Software Solutions Ltd, we value every opportunity to connect with our clients, partners, and future collaborators. Whether you have questions about our services, need technical support, or want to discuss a potential project, our team is always ready to assist you. Reach out to us anytime.
               </p>
-            </div>
+            </Container>
           </div>
         </div>
-      </Container>
-
-      <section id="contact" style={{ background: '#0A3D62', color: '#fff', padding: '2rem 0' }}>
         <Container>
           <Row className="g-4">
             <Col lg={4} md={6} className="mb-4 mb-lg-0">
@@ -116,6 +116,9 @@ const Contact = () => {
             </Col>
             <Col lg={4} md={12}>
               <Card style={{ ...officeCardStyle, minHeight: 'auto', maxWidth: '100%', padding: '1rem' }} className="border-0 contact-form-card">
+                <div className="text-center mb-3">
+                  <h4 className="contact-form-title">Contact Us</h4>
+                </div>
                 {error && <Alert variant="danger" className="mb-3">{error}</Alert>}
                 <Form onSubmit={handleSubmit}>
                   <Form.Group className="mb-3" controlId="formName">
@@ -130,28 +133,33 @@ const Contact = () => {
                     <Form.Label>Message</Form.Label>
                     <Form.Control as="textarea" rows={2} placeholder="Type your message" value={message} onChange={(e) => setMessage(e.target.value)} required />
                   </Form.Group>
-                  <Button variant="info" type="submit" className="text-white fw-bold px-3 py-1" style={{ background: '#00B8D9' }} disabled={submitting}>
+                  <Button variant="info" type="submit" className="text-white fw-bold px-3 py-1 send-btn" style={{ background: '#00B8D9' }} disabled={submitting}>
                     {submitting ? (<><Spinner size="sm" animation="border" className="me-2" />Sending...</>) : 'Send Message'}
                   </Button>
                 </Form>
               </Card>
             </Col>
           </Row>
-          {/* Map below the row, white background */}
+          {/* Map section: white card with left text and right map */}
           <Row className="mt-4">
             <Col xs={12}>
-              <Card className="border-0 shadow-sm" style={{ borderRadius: '1rem', background: '#fff' }}>
-                <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', borderRadius: '1rem' }}>
-                  <iframe
-                    title="DTEC Software Solutions Location"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d-1!2d30.0587!3d-1.9441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x19dca5b02af3e5f9%3A0x0000000000000000!2sKubaho%20Plaza%2C%20KG%207%20Ave%2C%20Kigali!5e0!3m2!1sen!2srw!4v1700000000000"
-                    style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', border: 0 }}
-                    loading="lazy"
-                    referrerPolicy="no-referrer-when-downgrade"
-                  ></iframe>
-                </div>
-                <div className="p-2 text-end">
-                  <a href="https://www.google.com/maps?q=Kubaho+Plaza,+KG+7+Ave,+Kigali" target="_blank" rel="noopener noreferrer">Open in Google Maps</a>
+              <Card className="border-0 shadow-sm map-section-card" style={{ borderRadius: '1rem', background: '#fff' }}>
+                <div className="row g-0 align-items-center">
+                  <div className="col-lg-4 p-4 map-text-col">
+                    <h3 className="map-title" style={{ color: '#0A3D62', fontWeight: 800 }}>Our Locations</h3>
+                    <p className="map-desc text-muted" style={{ color: '#6c7b86' }}>We’d love to hear from you! Reach out at any time.</p>
+                  </div>
+                  <div className="col-lg-8 p-3 map-col">
+                    <div className="map-embed-wrapper large-map">
+                      <iframe
+                        className="map-iframe"
+                        title="DTEC Software Solutions Location"
+                        src="https://www.google.com/maps?q=Kubaho+Plaza,+KG+7+Ave,+Kigali&z=16&output=embed"
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                      ></iframe>
+                    </div>
+                  </div>
                 </div>
               </Card>
             </Col>

@@ -75,7 +75,10 @@ const About = () => (
             <div className="objective-item mb-4">
               <div className="d-flex align-items-start mb-2">
                 <span className="about-icon"><FaHandshake size={18} color="#d4145a" /></span>
-                <h5 className="objective-title ms-2">Client-Centric Approach</h5>
+                <div className="about-title-underline-wrap ms-2">
+                  <h5 className="objective-title">Client-Centric Approach</h5>
+                  <span className="about-underline" />
+                </div>
               </div>
               <p className="objective-sub mb-0">We prioritize client satisfaction by providing customized software solutions that meet their exact needs.</p>
             </div>
@@ -84,7 +87,10 @@ const About = () => (
             <div className="objective-item mb-4">
               <div className="d-flex align-items-start mb-2">
                 <span className="about-icon"><FaLightbulb size={18} color="#d4145a" /></span>
-                <h5 className="objective-title ms-2">Innovation & Quality</h5>
+                <div className="about-title-underline-wrap ms-2">
+                  <h5 className="objective-title">Innovation & Quality</h5>
+                  <span className="about-underline" />
+                </div>
               </div>
               <p className="objective-sub mb-0">We continuously adopt emerging technologies to deliver high performance, reliable software systems.</p>
             </div>
@@ -93,7 +99,10 @@ const About = () => (
             <div className="objective-item mb-4">
               <div className="d-flex align-items-start mb-2">
                 <span className="about-icon"><FaLeaf size={18} color="#d4145a" /></span>
-                <h5 className="objective-title ms-2">Sustainable Growth</h5>
+                <div className="about-title-underline-wrap ms-2">
+                  <h5 className="objective-title">Sustainable Growth</h5>
+                  <span className="about-underline" />
+                </div>
               </div>
               <p className="objective-sub mb-0">We aim to create long-term, sustainable growth by continuously improving our technologies, expanding our service portfolio, and fostering lasting client relationships.</p>
             </div>
@@ -102,7 +111,10 @@ const About = () => (
             <div className="objective-item mb-4">
               <div className="d-flex align-items-start mb-2">
                 <span className="about-icon"><FaUsers size={18} color="#d4145a" /></span>
-                <h5 className="objective-title ms-2">Collaborative Culture</h5>
+                <div className="about-title-underline-wrap ms-2">
+                  <h5 className="objective-title">Collaborative Culture</h5>
+                  <span className="about-underline" />
+                </div>
               </div>
               <p className="objective-sub mb-0">We nurture teamwork, transparency, and innovation, sharing successes to achieve shared outcomes. We focus on developing cutting-edge software solutions.</p>
             </div>

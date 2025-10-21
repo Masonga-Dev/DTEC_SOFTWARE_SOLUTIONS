@@ -1,9 +1,7 @@
-
 import React, { useState } from 'react';
 import { Container, Row, Col, Form, Button, Card, Alert, Spinner, Toast, ToastContainer } from 'react-bootstrap';
 import emailjs from '@emailjs/browser';
 import { FaMapMarkerAlt, FaPhoneAlt, FaEnvelope } from 'react-icons/fa';
-
 
 const officeCardStyle = {
   background: '#fff',
@@ -47,13 +45,10 @@ const Contact = () => {
       }
 
       const templateParams = {
-        // Match EmailJS template fields shown in your screenshot
         name,
         email,
         message,
         title: 'Contact Us',
-
-        // Optional extras (safe if not used by template)
         from_name: name,
         reply_to: email,
         service_name: 'Contact Form',
@@ -79,49 +74,29 @@ const Contact = () => {
   };
 
   return (
-  <>
-    {/* About Us band just below navbar */}
-    <div className="contact-about-wrapper py-4">
-      <Container>
-        <div className="contact-about-card p-4">
-          <div className="contact-about-inner text-center">
-            <h3 className="fw-bold mb-2">Contact Us</h3>
-            <p className="mb-0 text-muted">At DTEC Software Solutions Ltd, we value every opportunity to connect with our clients, partners, and future collaborators. Whether you have questions about our services, need technical support, or want to discuss a potential project, our team is always ready to assist you.
-Reach out to us anytime  we’d love to hear from you and help turn your ideas into powerful digital solutions.</p>
+    <>
+      {/* Two-column intro band at the top */}
+      <Container className="py-3">
+        <div className="pages-section">
+          <div className="row align-items-start">
+            <div className="col-md-4 pages-title-col">
+              <h2 className="pages-title fw-bold">Contact Us</h2>
+              <div className="pages-underline" />
+            </div>
+            <div className="col-md-8 pages-desc-col">
+              <p className="pages-desc mb-0 text-muted">
+                At DTEC Software Solutions Ltd, we value every opportunity to connect with our clients, partners, and future collaborators. Whether you have questions about our services, need technical support, or want to discuss a potential project, our team is always ready to assist you.
+                Reach out to us anytime — we’d love to hear from you and help turn your ideas into powerful digital solutions.
+              </p>
+            </div>
           </div>
         </div>
       </Container>
-    </div>
 
-    <section id="contact" style={{ background: 'linear-gradient(90deg, #0A3D62 60%, #00B8D9 100%)', color: '#fff', padding: '2rem 0' }}>
-    <Container>
-      <Row className="g-4">
-        <Col lg={6} className="mb-4 mb-lg-0">
-          <Card style={{ ...officeCardStyle, minHeight: 'auto', maxWidth: '480px', padding: '1rem' }} className="border-0 contact-form-card">
-            <h2 className="fw-bold mb-4" style={{ color: '#0A3D62' }}>Contact Us</h2>
-            {error && <Alert variant="danger" className="mb-3">{error}</Alert>}
-            <Form onSubmit={handleSubmit}>
-              <Form.Group className="mb-3" controlId="formName">
-                <Form.Label>Name</Form.Label>
-                <Form.Control size="sm" type="text" placeholder="Enter your name" value={name} onChange={(e) => setName(e.target.value)} required />
-              </Form.Group>
-              <Form.Group className="mb-3" controlId="formEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control size="sm" type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} required />
-              </Form.Group>
-              <Form.Group className="mb-2" controlId="formMessage">
-                <Form.Label>Message</Form.Label>
-                <Form.Control as="textarea" rows={2} placeholder="Type your message" value={message} onChange={(e) => setMessage(e.target.value)} required />
-              </Form.Group>
-              <Button variant="info" type="submit" className="text-white fw-bold px-3 py-1" style={{ background: '#00B8D9' }} disabled={submitting}>
-                {submitting ? (<><Spinner size="sm" animation="border" className="me-2" />Sending...</>) : 'Send Message'}
-              </Button>
-            </Form>
-          </Card>
-        </Col>
-        <Col lg={6}>
+      <section id="contact" style={{ background: '#0A3D62', color: '#fff', padding: '2rem 0' }}>
+        <Container>
           <Row className="g-4">
-            <Col xs={12} md={6}>
+            <Col lg={4} md={6} className="mb-4 mb-lg-0">
               <Card style={officeCardStyle} className="h-100 border-0 office-contact">
                 <h5 className="fw-bold mb-3" style={{ color: '#0A3D62' }}>Rwanda Office</h5>
                 <p className="mb-2"><FaMapMarkerAlt style={iconStyle} />Kubaho Plaza, KG 7 Ave, KIGALI</p>
@@ -130,7 +105,7 @@ Reach out to us anytime  we’d love to hear from you and help turn your ideas i
                 <p className="mb-2"><FaEnvelope style={iconStyle} /><a href="mailto:Sales@dtec.rw" className="text-decoration-none" style={{ color: '#0A3D62' }}>Sales@dtec.rw</a></p>
               </Card>
             </Col>
-            <Col xs={12} md={6}>
+            <Col lg={4} md={6} className="mb-4 mb-lg-0">
               <Card style={officeCardStyle} className="h-100 border-0 office-contact">
                 <h5 className="fw-bold mb-3" style={{ color: '#0A3D62' }}>India Office</h5>
                 <p className="mb-2"><FaMapMarkerAlt style={iconStyle} />Kurasseril Bunglavu, MahadeviKadu PO,<br />Karthikapally, Alappuzha, Kerala, INDIA.</p>
@@ -139,8 +114,33 @@ Reach out to us anytime  we’d love to hear from you and help turn your ideas i
                 <p className="mb-2"><FaEnvelope style={iconStyle} /><a href="mailto:Sales@dtec.rw" className="text-decoration-none" style={{ color: '#0A3D62' }}>Sales@dtec.rw</a></p>
               </Card>
             </Col>
+            <Col lg={4} md={12}>
+              <Card style={{ ...officeCardStyle, minHeight: 'auto', maxWidth: '100%', padding: '1rem' }} className="border-0 contact-form-card">
+                {error && <Alert variant="danger" className="mb-3">{error}</Alert>}
+                <Form onSubmit={handleSubmit}>
+                  <Form.Group className="mb-3" controlId="formName">
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control size="sm" type="text" placeholder="Enter your name" value={name} onChange={(e) => setName(e.target.value)} required />
+                  </Form.Group>
+                  <Form.Group className="mb-3" controlId="formEmail">
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control size="sm" type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+                  </Form.Group>
+                  <Form.Group className="mb-2" controlId="formMessage">
+                    <Form.Label>Message</Form.Label>
+                    <Form.Control as="textarea" rows={2} placeholder="Type your message" value={message} onChange={(e) => setMessage(e.target.value)} required />
+                  </Form.Group>
+                  <Button variant="info" type="submit" className="text-white fw-bold px-3 py-1" style={{ background: '#00B8D9' }} disabled={submitting}>
+                    {submitting ? (<><Spinner size="sm" animation="border" className="me-2" />Sending...</>) : 'Send Message'}
+                  </Button>
+                </Form>
+              </Card>
+            </Col>
+          </Row>
+          {/* Map below the row, white background */}
+          <Row className="mt-4">
             <Col xs={12}>
-              <Card className="border-0 shadow-sm" style={{ borderRadius: '1rem' }}>
+              <Card className="border-0 shadow-sm" style={{ borderRadius: '1rem', background: '#fff' }}>
                 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0, overflow: 'hidden', borderRadius: '1rem' }}>
                   <iframe
                     title="DTEC Software Solutions Location"
@@ -156,16 +156,14 @@ Reach out to us anytime  we’d love to hear from you and help turn your ideas i
               </Card>
             </Col>
           </Row>
-        </Col>
-        <ToastContainer position="bottom-center" className="p-3">
-          <Toast onClose={() => { setShowToast(false); setSuccess(''); }} show={showToast} delay={2500} autohide bg="success">
-            <Toast.Body className="text-white">{success || 'Message sent successfully.'}</Toast.Body>
-          </Toast>
-        </ToastContainer>
-      </Row>
-    </Container>
-  </section>
-  </>
+          <ToastContainer position="bottom-center" className="p-3">
+            <Toast onClose={() => { setShowToast(false); setSuccess(''); }} show={showToast} delay={2500} autohide bg="success">
+              <Toast.Body className="text-white">{success || 'Message sent successfully.'}</Toast.Body>
+            </Toast>
+          </ToastContainer>
+        </Container>
+      </section>
+    </>
   );
 };
 

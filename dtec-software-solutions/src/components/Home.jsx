@@ -54,12 +54,21 @@ const Home = () => {
         </Container>
       </div>
       <Container className="py-5" style={{ maxWidth: 1100 }}>
-        <div className="text-center mb-4">
-          <h2 className="fw-bold mb-2">About Us</h2>
-          <p className="mb-4" style={{ fontSize: '1.05rem' }}>
-            we are technology driven company dedicated to building intelligent software systems,
-            empowering Business to transform, grow, and inovate in the digital world
-          </p>
+        {/* About intro: keep About on the Home page only. Other page intros moved into their respective components. */}
+        <div className="pages-section mb-4">
+          <div className="row align-items-start">
+            <div className="col-md-4 pages-title-col">
+              <h2 className="pages-title fw-bold">About Us</h2>
+              <div className="pages-underline" />
+            </div>
+            <div className="col-md-8 pages-desc-col">
+              <p className="pages-desc mb-0">
+                we are a technology-driven company dedicated to building intelligent software systems,
+                empowering businesses to transform, grow, and innovate in the digital world. We focus on
+                producing reliable, maintainable solutions that deliver measurable value to our customers.
+              </p>
+            </div>
+          </div>
         </div>
         <div className="row align-items-center g-4">
           <div className="col-md-6">

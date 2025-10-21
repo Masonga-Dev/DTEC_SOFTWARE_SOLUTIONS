@@ -12,7 +12,7 @@ const services = [
   { icon: <FaPuzzlePiece size={40} color="#00B8D9" />, title: 'System Integration', desc: 'Seamless integration of systems and platforms.' },
 ];
 
-const Services = () => {
+const Services = ({ sample = false }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const [selectedService, setSelectedService] = useState('');
 
@@ -23,28 +23,28 @@ const Services = () => {
 
   return (
     <section id="services" style={{ background: '#f8f9fa', padding: '0 0 4rem 0' }}>
-      <div className="service-hero-section">
-        <div className="hero-video-section">
-          <video className="hero-video" autoPlay muted loop playsInline>
-            <source src="/images/service.mp4" type="video/mp4" />
-            Your browser does not support HTML5 video.
-          </video>
-          <div className="hero-overlay" />
-          <div className="hero-content">
-            <h1 className="hero-title fw-bold">Our Services</h1>
-            <p className="hero-desc">We deliver industry-grade services: custom software, cloud migration, maintenance & support, and more.</p>
+      {/* Intro band moved into the Container below so headings align with other pages */}
+      {!sample && (
+        <div className="service-hero-section">
+          <div className="hero-video-section">
+            <video className="hero-video" autoPlay muted loop playsInline>
+              <source src="/images/service.mp4" type="video/mp4" />
+              Your browser does not support HTML5 video.
+            </video>
+            <div className="hero-overlay" />
+            {/* hero overlay: heading + description for services */}
+            <Container className="hero-content text-center">
+              <h1 className="hero-title fw-bold">Our Services</h1>
+              <p className="hero-desc">
+                We provide end-to-end software services including custom application development, cloud migration, system integration, and ongoing maintenance.
+              </p>
+            </Container>
+ 
           </div>
         </div>
-      </div>
+      )}
 
       <Container>
-        <h2 className="fw-bold text-center mb-3" style={{ color: '#0A3D62' }}>Our Services</h2>
-        <p className="text-center mb-5" style={{ maxWidth: 900, margin: '0 auto' }}>
-          We are a leading IT company delivering innovative software, IT, and networking solutions.
-          We specialize in custom software development, web and mobile applications, cloud
-          integration, and network services, providing businesses with reliable, efficient, and
-          tailored technology solutions to drive growth and success.
-        </p>
         <Row>
           {services.map((service, idx) => (
             <Col md={4} className="mb-4" key={idx}>

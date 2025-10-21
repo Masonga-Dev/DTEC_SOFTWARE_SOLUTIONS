@@ -29,7 +29,7 @@ const About = () => (
         </Col>
         <Col md={6}>
           <h2 className="fw-bold mb-2">Who We Are</h2>
-          <p>
+          <p className="about-desc">
             DTEC Software Solutions is dedicated to delivering innovative, reliable, and scalable software products and services. Our mission is to empower businesses with technology that drives growth and efficiency.
           </p>
         </Col>

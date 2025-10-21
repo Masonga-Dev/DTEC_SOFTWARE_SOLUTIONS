@@ -28,6 +28,37 @@
   transform: scaleX(0);
   transform-origin: right;
 }
+/* Animated red underline on hover/focus for titles */
+.about-title-underline-wrap:hover .about-underline,
+.about-title-underline-wrap:focus-within .about-underline,
+/* also trigger when hovering the containing column */
+.about-hover-col:hover .about-underline,
+.about-hover-col:focus-within .about-underline,
+.objective-item:hover .about-underline,
+.objective-item:focus-within .about-underline {
+  transform-origin: left;
+  transform: scaleX(1);
+  transition: transform 320ms cubic-bezier(.2,.9,.2,1);
+}
+
+/* Objective subtitle hover accent */
+.objective-sub {
+  transition: color 200ms ease, transform 200ms ease;
+  color: #111; /* ensure black text by default */
+  text-align: justify;
+  line-height: 1.8;
+}
+/* Keep objective text black on hover; only apply subtle movement but not color change */
+.objective-sub:hover {
+  color: #111; /* keep black on hover per request */
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about-title-underline-wrap:hover .about-underline,
+  .about-title-underline-wrap:focus-within .about-underline,
+  .objective-sub { transition: none; transform: none; }
+}
 
 /* Contact hero tweaks (kept at top-level) */
 .contact-hero-section { margin-bottom: 3.5rem; }
@@ -96,6 +127,21 @@
 }
 .about-objectives {
   margin-top: 2.5rem;
+}
+
+/* Objective columns: use grid for consistent gaps and alignment */
+.about-objectives .row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem 3rem; /* row gap then column gap tightened to 3rem */
+  align-items: start;
+}
+.about-objectives .col-md-6 {
+  padding-left: 0;
+  padding-right: 0;
+}
+.about-mission-vision {
+  margin-top: 3rem; /* extra spacing between Who We Are and Mission/Vision */
 }
 .about-objectives .about-title {
   font-size: 1.75rem;
@@ -207,6 +253,20 @@ footer a[href^="tel:"]:hover, footer a[href^="tel:"]:focus {
 }
 .product-info h3 {
   color: #1a1a1a;
+}
+
+/* Limit product description text to 3 lines (3-4 lines can be adjusted) */
+.product-info p,
+.product-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* now show up to 4 lines */
+  line-clamp: 4;
+  -moz-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.6;
+  max-height: calc(1.6em * 4); /* defensive fallback for 4 lines */
 }
 
 @media (min-width: 768px) {
@@ -630,11 +690,25 @@ footer a[href^="tel:"]:hover, footer a[href^="tel:"]:focus {
   font-weight: 800;
   margin: 0 0 0.25rem 0;
 }
+.objective-item {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Make objective subtitles match mission/vision paragraph styling */
 .objective-sub {
   margin: 0;
-  color: #333333;
-  line-height: 1.8;
-  text-align: justify;
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.8; /* match Mission/Vision exactly */
+  text-align: justify; /* fully justified like Mission/Vision */
+}
+
+/* Make sure icons and titles align nicely on small screens */
+@media (max-width: 767px) {
+  .about-objectives .row { display: block; }
+  .about-objectives .col-md-6 { margin-bottom: 1.25rem; }
 }
 
 /* Make section titles and subtitles bolder with underline for About mission/vision/objectives */

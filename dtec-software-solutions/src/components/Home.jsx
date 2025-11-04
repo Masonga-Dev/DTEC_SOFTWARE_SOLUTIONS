@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-
 const Home = () => {
   return (
     <section id="home">

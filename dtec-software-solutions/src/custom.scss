@@ -1008,13 +1008,15 @@ footer a[href^="tel:"]:hover, footer a[href^="tel:"]:focus {
 
 /* On large screens make the left headline fixed so it never moves while the right column scrolls */
 @media (min-width: 1200px) {
+  /* Keep the left headline sticky so it stays in place while the services cards scroll
+     Sticky will keep the element in the same position until the right column finishes */
   .services-left-inner {
-    position: fixed;
+    position: -webkit-sticky;
+    position: sticky;
     top: 120px; /* comfortable offset from top */
-    /* align with the container's left edge (container max-width:1200px)
-       add 16px (1rem) for internal padding so headline doesn't touch container edge */
-    left: calc((100% - 1200px) / 2 + 16px);
-    width: 320px;
+    align-self: start;
+    z-index: 3;
+    width: 320px; /* fixed width to match left column layout */
   }
   /* Add spacing on the right column so content doesn't overlap the fixed left column */
   .services-right { padding-left: 0.5rem; }
@@ -1228,6 +1230,21 @@ footer a[href^="tel:"]:hover, footer a[href^="tel:"]:focus {
 .tech-label { color: #cfd8dc; font-size:0.95rem; }
 .tech-item:hover .tech-icon { transform: scale(1.08); box-shadow: 0 18px 60px rgba(0,200,255,0.18), 0 6px 18px rgba(0,0,0,0.6); outline: 0; }
 .tech-notes { color: #b8c6cc; margin-top: 1rem; font-size: 0.95rem; line-height:1.55; }
+
+/* Specific tech icon styles for a more professional look */
+.tech-icon.php { background: linear-gradient(135deg,#8892BF,#6C63FF); }
+.tech-icon.java { background: linear-gradient(135deg,#E07A3A,#C8371A); }
+.tech-icon.swift { background: linear-gradient(135deg,#FA7343,#FF9B6A); }
+.tech-icon.angular { background: linear-gradient(135deg,#DD0031,#C3002F); }
+
+/* Category tiles (Database / Frontend / Backend / Mobile / Cloud) */
+.tech-icon.database { background: linear-gradient(135deg,#2B90D9,#1B6FB6); width:72px; height:72px; font-size:30px; }
+.tech-icon.frontend { background: linear-gradient(135deg,#61DAFB,#00B8D9); width:72px; height:72px; font-size:30px; }
+.tech-icon.backend { background: linear-gradient(135deg,#7C4DFF,#5A31D9); width:72px; height:72px; font-size:30px; }
+.tech-icon.mobile { background: linear-gradient(135deg,#00C6FF,#0072FF); width:72px; height:72px; font-size:30px; }
+.tech-icon.cloud { background: linear-gradient(135deg,#00D4A8,#008C7A); width:72px; height:72px; font-size:30px; }
+
+.tech-item.category { padding-top: 0.5rem; }
 
 @media (max-width: 991px) {
   .tech-grid { grid-template-columns: repeat(3, 1fr); }

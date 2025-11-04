@@ -2,30 +2,29 @@
 export const products = [
   {
     slug: 'dtec-crm',
-    name: 'CRM',
+    name: 'D-CRMS',
     img: 'https://images.unsplash.com/photo-1753351055117-f24d8baa682e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1031',
     desc: `CRM
-Empower your sales and support teams with a powerful CRM designed for growing businesses.
-Track leads, manage clients, and build stronger customer relationships through data-driven insights.
-Simplify workflows and enhance collaboration across your organization.`,
+(Customer Relationship Management) Helps manage clients, leads, sales pipelines, and
+customer service with automation and analytics.
+`,
     demoUrl: null,
   },
   {
     slug: 'dtec-hrm',
-    name: 'HRM',
+    name: 'D-HRM',
     img: 'https://plus.unsplash.com/premium_photo-1661501701943-bc3742c01830?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870',
-    desc: `👥 HRM
+    desc: `Full-suite
 
-A modern HRM solution that simplifies employee management, payroll, and performance tracking.
-Empower HR teams with automation, self-service portals, and insightful analytics.
-Enhance workplace efficiency and employee satisfaction with ease.`,
+ Human Resource Management System & Payroll system with attendance, leave,
+and payslip automation; tax & compliance read`,
     demoUrl: null,
   },
   {
     slug: 'dtec-analytics',
     name: 'Analytics',
     img: 'https://images.unsplash.com/photo-1758691736545-5c33b6255dca?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1032',
-    desc: `📊 Analytics
+    desc: `Analytics
 
 Transform raw data into powerful insights with our intuitive analytics platform.
 Track KPIs, visualize performance trends, and make smarter business decisions.
@@ -34,24 +33,23 @@ Drive growth with real-time dashboards and predictive analytics.`,
   },
   {
     slug: 'dtec-pos',
-    name: 'POS',
+    name: 'D-POS',
     img: 'https://plus.unsplash.com/premium_photo-1683288706548-e8b6bb72fe86?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=774',
-    desc: ` POS
+    desc: ` Retail
 
-Streamline in-store and online transactions with our cloud-synced POS system.
-Manage inventory, track sales, and access reports anytime, anywhere.
-Built for retail success with reliability, speed, and insight at every checkout.`,
+  and restaurant Point of Sale System (POS) with inventory tracking,
+barcode integration, and real-time reports.`,
     demoUrl: null,
   },
   {
     slug: 'dtec-erp',
-    name: 'ERP',
+    name: 'D-ERP',
     img: 'https://plus.unsplash.com/premium_photo-1726743809701-67e8600f7670?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870',
-    desc: `⚙️ Enterprise Resource Planning
+    desc: `Enterprise Resource Planning
 
-Unify operations across departments with an integrated ERP solution for SMBs.
-Manage finance, supply chain, HR, and production from a single platform.
-Enhance efficiency, reduce costs, and scale with confidence.`,
+Modular Enterprise Resource Planning (ERP) for finance, procurement, inventory, HR,
+and CRM4customizable for SMEs and public
+institutions.`,
     demoUrl: null,
   },
   {
@@ -85,7 +83,7 @@ Deliver exceptional customer service through efficiency and transparency.`,
     slug: 'dtec-finance',
     name: 'Finance',
     img: 'https://images.unsplash.com/photo-1628348068343-c6a848d2b6dd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870',
-    desc: `💰 Finance
+    desc: `Finance
 
 Simplify your financial operations with automated accounting and invoicing tools.
 Gain clarity on cash flow, expenses, and reports with intuitive dashboards.
@@ -94,20 +92,19 @@ Stay compliant and make informed financial decisions with confidence.`,
   },
   {
     slug: 'dtec-inventory',
-    name: 'Inventory',
+    name: 'D-Inventory',
     img: 'https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&w=800&q=80',
-    desc: `📦 Inventory
+    desc: ` Smart
 
-Track inventory in real time and never miss a restock again.
-Monitor product performance, receive alerts, and manage multiple locations seamlessly.
-Optimize supply chain operations with intelligent insights and automation.`,
+warehouse and stock control platform with
+supplier and order management`,
     demoUrl: null,
   },
   {
     slug: 'dtec-booking',
     name: 'Booking',
     img: 'https://images.unsplash.com/photo-1653213096328-9482182f9f80?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870',
-    desc: `📅 Booking
+    desc: `Booking
 
 Simplify service scheduling with an online appointment management platform.
 Enable customers to book anytime, anywhere, with automated reminders.
@@ -116,13 +113,12 @@ Ideal for salons, healthcare, and service-based businesses.`,
   },
   {
     slug: 'dtec-cms',
-    name: 'CMS',
+    name: 'D-WEB CMS ',
     img: 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80',
-    desc: `📰 CMS — Headless Content Management
+    desc: `
 
-Create, manage, and deliver content seamlessly across platforms.
-Empower your marketing and development teams with a headless CMS built for speed.
-Flexible, scalable, and designed for modern digital experiences.`,
+Custom content management system with
+multilingual and responsive design capabilities.`,
     demoUrl: null,
   },
 ];

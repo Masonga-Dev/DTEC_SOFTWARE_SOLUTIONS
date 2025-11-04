@@ -73,22 +73,7 @@
 /* Contact form title */
 .contact-form-title { color: #0A3D62; margin: 0; font-weight: 800; }
 
-/* Service icon 360deg animation */
-@keyframes dtec-rotate360 {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-.service-card .service-icon { transition: transform 800ms linear; }
-.service-card:hover .service-icon { animation: dtec-rotate360 800ms linear 1; }
-
-.hero-content {
-  position: relative;
-  z-index: 3;
-  max-width: 1000px;
-  margin: 0 auto;
-  text-align: center;
-  color: #fff;
-}
+/* Service icon 360deg animation (defined once below) */
 /* Ensure hero headings and descriptions are white on About and Product hero videos */
 .product-hero-section .hero-content,
 .about-bg-section .hero-content,
@@ -107,6 +92,24 @@
 .service-hero-section .hero-desc,
 .contact-hero-section .hero-desc {
   color: rgba(255,255,255,0.92) !important;
+}
+/* Product hero two-line title styling (match Core Services style) */
+.product-hero-section .hero-content .hero-title .line-1 { display:block; color:#fff; }
+.product-hero-section .hero-content .hero-title .line-2 { display:block; color:#00B8D9; }
+
+/* Products list text color on dark background */
+.product-info { color: #fff; }
+.product-info h3, .product-info .fw-bold { color:#fff; font-weight:800; }
+.product-info p { color:#fff; }
+
+/* Who We Are section background image and overlay */
+.who-we-are-section {
+  background-image: linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)), url('/images/who-we-are-bg.jpg');
+  background-size: cover;
+  background-position: center center;
+  color: #fff;
+  border-radius: 12px;
+  padding: 2rem;
 }
 .about-icon {
   display: inline-flex;
@@ -135,10 +138,6 @@
   grid-template-columns: repeat(2, 1fr);
   gap: 2.5rem 3rem; /* row gap then column gap tightened to 3rem */
   align-items: start;
-}
-.about-objectives .col-md-6 {
-  padding-left: 0;
-  padding-right: 0;
 }
 .about-mission-vision {
   margin-top: 3rem; /* extra spacing between Who We Are and Mission/Vision */
@@ -178,9 +177,8 @@
   margin-right: 0.5rem;
 }
 .about-objectives .col-md-6 {
-  margin-bottom: 1.5rem;
-}
-.about-objectives .col-md-6 {
+  padding-left: 0;
+  padding-right: 0;
   margin-bottom: 1.5rem;
 }
 @media (max-width: 767px) {
@@ -217,6 +215,49 @@ footer a[href^="tel:"]:hover, footer a[href^="tel:"]:focus {
 .product-card:hover {
   transform: translateY(-4px);
   box-shadow: 0 10px 24px rgba(10,61,98,0.15);
+}
+
+/* Product image hover effect: subtle scale + shadow for depth */
+.product-image .product-hero-img {
+  transition: transform 300ms cubic-bezier(.2,.9,.2,1), box-shadow 300ms ease, filter 300ms ease;
+  border-radius: 0.75rem;
+  will-change: transform;
+}
+.product-image:hover .product-hero-img,
+.product-card:hover .product-hero-img {
+  transform: scale(1.04);
+  box-shadow: 0 18px 40px rgba(2,10,20,0.18);
+  filter: brightness(1.03) saturate(1.05);
+}
+
+/* Products page: force product-related buttons to neutral gray with white text for contrast */
+.product-hero-section .btn,
+.product-info .btn,
+.product-card .btn,
+.products-list .btn {
+  background: #6c6c6c !important; /* neutral medium gray */
+  border-color: #6c6c6c !important;
+  color: #ffffff !important;
+  box-shadow: none;
+  transition: background 180ms ease, transform 160ms ease, box-shadow 160ms ease;
+}
+.product-hero-section .btn:hover,
+.product-info .btn:hover,
+.product-card .btn:hover,
+.products-list .btn:hover {
+  background: #555 !important; /* slightly darker on hover */
+  border-color: #555 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+}
+
+/* Focus state for keyboard accessibility */
+.product-hero-section .btn:focus,
+.product-info .btn:focus,
+.product-card .btn:focus,
+.products-list .btn:focus {
+  outline: 3px solid rgba(108,108,108,0.18);
+  outline-offset: 2px;
 }
 
 /* Support for navbar static vs fixed-top (hero present) */
@@ -508,17 +549,157 @@ footer a[href^="tel:"]:hover, footer a[href^="tel:"]:focus {
 }
 .hero-title {
   font-size: 3.4rem;
-  line-height: 1.05;
-  margin-bottom: 0.8rem;
+  line-height: 1.12; /* increased for better spacing */
+  margin-bottom: 0.6rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
   animation: slideFromRight 800ms ease both;
   animation-delay: 120ms;
 }
 .hero-desc {
-  font-size: 1.1rem;
-  max-width: 820px;
+  font-size: 1.08rem;
+  max-width: 720px; /* constrain description width for better readability */
   margin: 0 auto 1.2rem;
-  text-align: justify;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.94);
   animation-delay: 300ms;
+}
+
+/* Accent underline for hero title like Accenture */
+.hero-title {
+  position: relative;
+}
+.hero-title::after {
+  content: '';
+  display: block;
+  width: 84px;
+  height: 4px;
+  background: #d4145a;
+  border-radius: 3px;
+  margin-top: 10px;
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+/* CTA alignment: left on wide screens */
+.hero-cta {
+  margin-top: 1.2rem;
+  text-align: center;
+}
+.hero-cta .hero-cta-arrow { align-items: center; }
+
+@media (min-width: 992px) {
+  /* left align hero content on wide screens like Accenture */
+  .hero-content {
+    text-align: left;
+    max-width: 980px;
+    margin-left: 0;
+    padding-left: 4rem;
+    padding-right: 1rem;
+  }
+  .hero-desc { margin-left: 0; }
+  .hero-cta { text-align: left; }
+  .hero-title {
+    font-size: 4.2rem;
+    line-height: 1.02;
+  }
+}
+
+/* Two-column hero layout: title left, description + CTA right */
+.hero-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.5rem;
+  align-items: center;
+}
+.hero-col { min-height: 220px; }
+.hero-col-left { display: flex; align-items: flex-start; }
+.hero-col-right {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end; /* keep the card anchored to the right */
+}
+.hero-col-right .hero-desc {
+  position: relative;
+  max-width: 420px;
+  line-height: 1.95;
+  margin-top: 0.6rem;
+  background: rgba(255,255,255,0.04);
+  padding: 1rem 1.1rem;
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+}
+.hero-col-right .hero-desc::before {
+  content: '';
+  display: block;
+  width: 56px;
+  height: 4px;
+  background: #d4145a;
+  border-radius: 2px;
+  position: absolute;
+  top: -14px;
+  right: 0; /* place line above the description on the right */
+}
+
+/* Paper-roll animation removed: description will display statically. */
+
+/* Slightly increase title line length for visual weight */
+.hero-title { max-width: 760px; }
+
+/* Hero logo above title */
+.hero-logo {
+  display: block;
+  width: 180px;
+  max-width: 36vw;
+  height: auto;
+  margin-bottom: 0.9rem;
+  filter: drop-shadow(0 8px 24px rgba(2,10,20,0.35));
+}
+
+/* navbar logo */
+.nav-logo { max-height: 64px; display:block; }
+.navbar.scrolled .nav-logo { filter: brightness(0) invert(1); }
+
+/* Stair-step hero title lines */
+.hero-title-line {
+  display: block;
+  /* small base gap between lines */
+  margin-bottom: 0.18rem;
+  /* default color and weight - overridden on last line */
+  color: #ffffff;
+  font-weight: 700;
+  line-height: 0.98;
+}
+.hero-title-line-1 { margin-left: 0; }
+.hero-title-line-2 { margin-left: 1.6rem; }
+.hero-title-line-3 { margin-left: 3.2rem; }
+.hero-title-line-4 { margin-left: 4.8rem; }
+
+/* Style the last visible line: silver and slightly heavier */
+.hero-title-line:last-child {
+  color: #cfcfcf; /* silver-ish */
+  font-weight: 900;
+}
+
+@media (max-width: 991px) {
+  /* Reduce indentation on smaller screens so lines don't wrap awkwardly */
+  .hero-title-line-2 { margin-left: 0.8rem; }
+  .hero-title-line-3 { margin-left: 1.6rem; }
+  .hero-title-line-4 { margin-left: 2.4rem; }
+}
+
+@media (max-width: 991px) {
+  .hero-two-col { grid-template-columns: 1fr; gap: 1rem; }
+  .hero-content { padding-left: 1rem; padding-right: 1rem; text-align: center; }
+  .hero-col-left, .hero-col-right { align-items: center; text-align: center; }
+  .hero-col-right .hero-desc { line-height: 1.6; }
+}
+
+@media (max-width: 767px) {
+  .hero-title { font-size: 2rem; }
+  .hero-desc { line-height: 1.7; max-width: 100%; }
 }
 
 @keyframes slideFromRight {
@@ -530,6 +711,230 @@ footer a[href^="tel:"]:hover, footer a[href^="tel:"]:focus {
 @media (max-width: 768px) {
   .hero-title { font-size: 2rem; }
   .hero-desc { font-size: 1rem; }
+}
+
+/* Services page styles */
+.service-hero-section.hero-video-section {
+  height: 48vh;
+  min-height: 360px;
+}
+.services-page {
+  /* use a pure black background per request for maximum contrast */
+  background: #000;
+  color: #fff;
+  padding-top: 0.5rem;
+  padding-bottom: 3rem;
+}
+.services-main.container { max-width: 1200px; padding: 3rem 1rem; background: transparent; perspective: 1200px; margin: 0 auto; }
+.services-grid {
+  display: grid;
+  grid-template-columns: 320px 1fr; /* slightly narrower left column to fit on-screen */
+  gap: 2rem;
+  align-items: start;
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.services-left {
+  position: relative;
+}
+.services-left-inner {
+  /* Default to sticky so small tweaks inherit; on large screens we'll make it fixed */
+  position: sticky;
+  top: 90px;
+  align-self: start;
+  z-index: 3; /* keep the left headline above other elements */
+  padding-right: 0.25rem;
+}
+.services-left-title { font-family: 'Poppins', sans-serif; font-size: 2.4rem; line-height: 1.02; margin: 0 0 1rem 0; }
+.services-left-title .line-1 { display:block; color:#fff; }
+.services-left-title .line-2 { display:block; color:#00B8D9; }
+.vertical-accent {
+  width: 3px; height: calc(100% - 3.2rem); background: linear-gradient(180deg,#00B8D9, #d4145a); margin-top: 1rem; border-radius:2px;
+}
+.services-right { padding-bottom: 2rem; }
+.services-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; align-items: start; }
+.service-tile {
+  /* full-card background image with content layered on top */
+  display: block;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  background: transparent; /* image fills card, no white space or border */
+  border: none;
+  min-height: 420px;
+  box-shadow: 0 8px 28px rgba(2,10,20,0.45);
+  transition: transform 360ms cubic-bezier(.2,.9,.2,1), box-shadow 360ms ease;
+}
+.service-media {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  z-index: 0;
+}
+.service-media-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  background: linear-gradient(135deg, rgba(0,184,217,0.06), rgba(212,20,90,0.04));
+  transition: transform 360ms ease, filter 300ms ease;
+  background-size: cover; /* ensures image fills proportionally */
+  background-position: center center;
+}
+/* support background images that cover the tile */
+.service-media-bg.has-image {
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+.service-media-bg.has-image::after {
+  /* subtle dark overlay so title remains readable on top of image */
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.12) 0%, rgba(0,0,0,0.32) 100%);
+  pointer-events: none;
+}
+.service-body { background: transparent; padding: 0; display:block; position: relative; z-index: 5; height: 100%; }
+.service-head { display:flex; gap: 0.9rem; align-items:center; position: absolute; top: 16px; left: 16px; z-index: 6; }
+.service-title {
+  margin:0;
+  font-size:1.06rem;
+  color:#fff;
+  font-weight:800;
+  line-height:1.06;
+  position: relative;
+  display: -webkit-box; /* clamp long titles to two lines */
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.service-desc { color:#fff; opacity:1; transform: none; transition: all 250ms cubic-bezier(.2,.9,.2,1); font-size:0.98rem; line-height:1.5; }
+/* overlay covers the full tile; hidden by default and shown on hover/active */
+.service-overlay { position:absolute; inset:0; display:flex; flex-direction:column; justify-content:center; align-items:flex-start; padding:1.5rem; background: rgba(0,0,0,0); transition: background 260ms ease-in-out, opacity 260ms ease-in-out, transform 220ms ease; pointer-events: none; z-index: 2; opacity: 0; }
+.service-actions { margin-top:1rem; opacity:0; transform: translateY(12px); transition: all 320ms cubic-bezier(.2,.9,.2,1); }
+.service-tile:hover .service-media-bg { transform: scale(1.06); filter: saturate(1.05) contrast(0.95); }
+.service-tile:hover .service-overlay,
+.service-tile:hover .service-overlay,
+.service-tile[aria-expanded="true"] .service-overlay {
+  /* full-cover black overlay */
+  background: rgba(0,0,0,0.92);
+  pointer-events: auto;
+  opacity: 1;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1.5rem;
+  inset: 0;
+  border-radius: 12px;
+}
+
+.service-tile:hover .service-desc, .service-tile:hover .service-actions,
+.service-tile[aria-expanded="true"] .service-desc, .service-tile[aria-expanded="true"] .service-actions { opacity:1; transform: translateY(0); }
+.service-icon { display:flex; align-items:center; justify-content:center; width:56px; height:56px; background: rgba(255,255,255,0.03); border-radius:8px; }
+
+/* Keep the title visible above the overlay on hover */
+.service-head { position: relative; z-index: 6; }
+.service-tile:hover .service-title { color: #fff; text-shadow: 0 2px 8px rgba(0,0,0,0.6); }
+/* Add a subtle backdrop behind the title on hover so it remains legible against the overlay */
+.service-tile:hover .service-title {
+  background: rgba(0,0,0,0.55);
+  padding: 4px 8px;
+  border-radius: 6px;
+  display: inline-block; /* keep background tight to title */
+  z-index: 7;
+}
+
+/* Active state for touch devices: allow tap-to-reveal the overlay */
+.service-tile.active .service-overlay,
+.service-tile[aria-expanded="true"] .service-overlay {
+  background: rgba(0,0,0,0.92);
+  pointer-events: auto;
+  opacity: 1;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1.5rem;
+  inset: 0;
+  border-radius: 12px;
+}
+.service-tile.active .service-desc,
+.service-tile[aria-expanded="true"] .service-desc,
+.service-tile.active .service-actions,
+.service-tile[aria-expanded="true"] .service-actions {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* overlay title inside the info card */
+
+.service-overlay .service-desc { color: #fff; opacity: 0; transform: translateY(8px); transition: all 260ms cubic-bezier(.2,.9,.2,1); }
+.service-overlay .service-actions { opacity: 0; transform: translateY(8px); }
+
+/* Slight elevation and shadow for tiles to give depth and increased height */
+.service-tile { transition: transform 360ms cubic-bezier(.2,.9,.2,1), box-shadow 360ms cubic-bezier(.2,.9,.2,1), filter 360ms ease; transform-style: preserve-3d; min-height: 420px; height: 100%; }
+
+/* Hover lift and shadow for professional feel */
+.service-tile:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 36px 80px rgba(2,10,20,0.6);
+}
+
+/* Add a subtle colored glow layer under the tiles on hover for depth */
+.service-tile::after {
+  content: '';
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  bottom: -10px;
+  height: 20px;
+  border-radius: 12px;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 360ms ease, transform 360ms ease;
+  background: radial-gradient(ellipse at center, rgba(0,184,217,0.08) 0%, rgba(212,20,90,0.03) 45%, transparent 60%);
+  transform: translateY(6px) scaleX(0.98);
+}
+.service-tile:hover::after { opacity: 1; transform: translateY(0) scaleX(1); }
+
+/* Ensure overlay content remains above the glow */
+.service-body { position: relative; z-index: 5; }
+
+
+@media (max-width: 991px) {
+  .services-grid { grid-template-columns: 1fr; }
+  .services-left-inner { position: static; padding-bottom: 1rem; }
+  .service-media { border-radius: 12px; }
+  .service-tile { grid-template-columns: 1fr; min-height: 320px; }
+  .service-overlay { position: absolute; }
+  .services-list { grid-template-columns: 1fr; }
+}
+
+/* On large screens make the left headline fixed so it never moves while the right column scrolls */
+@media (min-width: 1200px) {
+  .services-left-inner {
+    position: fixed;
+    top: 120px; /* comfortable offset from top */
+    /* align with the container's left edge (container max-width:1200px)
+       add 16px (1rem) for internal padding so headline doesn't touch container edge */
+    left: calc((100% - 1200px) / 2 + 16px);
+    width: 320px;
+  }
+  /* Add spacing on the right column so content doesn't overlap the fixed left column */
+  .services-right { padding-left: 0.5rem; }
+}
+
+/* On small screens ensure tap-to-reveal is usable: larger touch targets and visible overlay */
+@media (max-width: 767px) {
+  .service-tile { border-radius: 12px; overflow: hidden; }
+  .service-overlay { align-items: flex-start; padding: 1rem; }
+  .service-title { font-size: 1.15rem; }
+  .service-desc { opacity: 1; transform: none; }
+  .service-tile.active .service-desc { opacity: 1; }
 }
 
 /* Add top padding to body content when navbar is fixed to avoid overlap */
@@ -581,12 +986,12 @@ footer a[href^="tel:"]:hover, footer a[href^="tel:"]:focus {
   transform: translateY(-2px);
 }
 
-/* Map sizing and layout tweaks to match screenshot */
+/* Map sizing and layout tweaks  */
 .map-card { border-radius: 1rem; overflow: visible; }
 .map-embed-wrapper {
   position: relative;
   width: 100%;
-  height: 260px; /* smaller height to match screenshot */
+  height: 260px; /* smaller height  */
   overflow: hidden;
   border-radius: 0.85rem;
 }

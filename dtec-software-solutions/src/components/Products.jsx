@@ -9,7 +9,7 @@ const Products = ({ sample = false }) => {
   const visibleProducts = sample ? products.slice(0, 3) : products;
 
   return (
-    <section id="products" style={{ background: '#fff', padding: '0 0 4rem 0' }}>
+    <section id="products" style={{ background: '#000', padding: '0 0 4rem 0' }}>
       {!sample && (
         <div className="product-hero-section">
           <div className="hero-video-section">
@@ -20,7 +20,7 @@ const Products = ({ sample = false }) => {
             <div className="hero-overlay" />
             {/* hero overlay: heading + description (keeps parity with pages-section band) */}
             <Container className="hero-content text-center">
-              <h1 className="hero-title fw-bold">Our Products</h1>
+              <h1 className="hero-title fw-bold"><span className="line-1">Enterprise</span><span className="line-2">&amp; Business Solutions</span></h1>
               <p className="hero-desc">
                 Explore our suite of reliable, scalable, and user friendly products designed to streamline operations and accelerate digital transformation across industries.
               </p>

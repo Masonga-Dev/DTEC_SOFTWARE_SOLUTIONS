@@ -2,44 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
-const slideStyles = {
-  slide: {
-    position: 'relative',
-    minHeight: '70vh',
-    color: '#fff',
-    display: 'flex',
-    alignItems: 'center',
-  },
-  bg: (url) => ({
-    position: 'absolute',
-    inset: 0,
-    backgroundImage: `url(${url})`,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-    filter: 'brightness(0.6)',
-  }),
-  overlay: {
-    position: 'absolute',
-    inset: 0,
-    background: 'rgba(0,0,0,0.70)',
-  },
-  contentWrap: {
-    position: 'relative',
-    zIndex: 2,
-    paddingTop: '3rem',
-    paddingBottom: '3rem',
-    textAlign: 'center',
-  },
-  title: {
-    fontFamily: 'Poppins, Montserrat, Arial, sans-serif',
-    fontWeight: 700,
-  },
-  desc: {
-    fontSize: '1.1rem',
-    maxWidth: 760,
-  },
-};
-
 const Home = () => {
   return (
     <section id="home">
@@ -50,7 +12,16 @@ const Home = () => {
         </video>
         <div className="hero-overlay" />
         <Container className="hero-content">
-          <HeroRotator />
+          <div className="hero-two-col">
+            <div className="hero-col hero-col-left">
+              {/* brand logo above the title */}
+              <img src="/images/logo.png" alt="D-TEC logo" className="hero-logo" />
+              <HeroRotator isTitleOnly />
+            </div>
+            <div className="hero-col hero-col-right">
+              <HeroRotator descOnly />
+            </div>
+          </div>
         </Container>
       </div>
       <Container className="py-5" style={{ maxWidth: 1100 }}>
@@ -63,26 +34,25 @@ const Home = () => {
             </div>
             <div className="col-md-8 pages-desc-col">
               <p className="pages-desc mb-0">
-                we are a technology-driven company dedicated to building intelligent software systems,
-                empowering businesses to transform, grow, and innovate in the digital world. We focus on
-                producing reliable, maintainable solutions that deliver measurable value to our customers.
+                D-TEC Software Solutions Ltd is a multinational IT services and software development company specializing in designing, developing, and deploying customized digital solutions for government institutions, corporate enterprises, NGOs, and international development organizations across East Africa and India.
               </p>
             </div>
           </div>
         </div>
-        <div className="row align-items-center g-4">
-          <div className="col-md-6">
-            <img src="/images/about.jpeg" alt="About DTEC" className="img-fluid rounded shadow" />
-          </div>
-          <div className="col-md-6">
-            <h4 className="fw-bold mb-2">Who We Are</h4>
-            <p className="mb-3">
-              DTEC Software Solutions is dedicated to delivering innovative, reliable, and scalable software products
-              and services. Our mission is to empower businesses with technology that drives growth and efficiency.
-            </p>
-            <Button as={Link} to="/about" variant="info" className="text-white" style={{ background: '#00B8D9' }}>
-              Learn More About Us
-            </Button>
+        <div className="who-we-are-section">
+          <div className="row align-items-center g-4">
+            <div className="col-md-6">
+              <img src="/images/about.jpeg" alt="About DTEC" className="img-fluid rounded shadow" />
+            </div>
+            <div className="col-md-6">
+              <h4 className="fw-bold mb-2">Who We Are</h4>
+              <p className="mb-3">
+                D-TEC Software Solutions Ltd is a multinational IT services and software development company with proven expertise serving government agencies, NGOs, and enterprises across Africa and India. Delivering innovative digital solutions that drive transformation and operational excellence.
+              </p>
+              <Button as={Link} to="/about" variant="info" className="text-white" style={{ background: '#00B8D9' }}>
+                Learn More About Us
+              </Button>
+            </div>
           </div>
         </div>
       </Container>
@@ -95,28 +65,29 @@ export default Home;
 // Rotating hero content component
 const slides = [
   {
-    title: 'DTEC SOFTWARE SOLUTIONS LTD',
-    desc: 'Empowering businesses through innovative software development, maintenance, and digital transformation services.',
+    // stair-step title: use newlines to create stepped lines
+    title: 'D-TEC Software Solutions\nLtd',
+    desc: 'A multinational IT services and software development company with proven expertise serving government agencies, NGOs, and enterprises across Africa and India. Delivering innovative digital solutions that drive transformation and operational excellence.',
     cta: { text: 'Discover More', to: '/about' }
   },
   {
-    title: 'Custom Software Solutions',
-    desc: 'From enterprise systems to web and mobile applications — we design and build software that transforms businesses.',
+    title: 'Software Development',
+    desc: ' Custom enterprise and government software systems, portals, and management tools designed forscalability and security.',
     cta: { text: 'Explore Services', to: '/services' }
   },
   {
-    title: 'Cloud Migration for Enterprises',
-    desc: 'Transition smoothly to secure, scalable, and cost-effective cloud platforms with DTEC’s Gamma Cloud services.',
+    title: 'Cloud & Hosting',
+    desc: 'Secure hosting, backup, and cloud management services with enterprise-grade reliability andcompliance.',
     cta: { text: 'View Demo', to: '/products' }
   },
   {
-    title: 'Reliable Maintenance & Support',
-    desc: 'Keep your business running without interruption with DTEC’s expert IT maintenance and support services.',
+    title: 'Web & CMS Solutions',
+    desc: 'Responsive, multilingual, and SEO-optimized websites powered by leading content managementsystems.',
     cta: { text: 'Request Service', to: '/contact' }
   }
 ];
 
-function HeroRotator() {
+function HeroRotator({ isTitleOnly = false, descOnly = false }) {
   const [index, setIndex] = useState(0);
   const [typedTitle, setTypedTitle] = useState('');
   const [typedDesc, setTypedDesc] = useState('');
@@ -178,16 +149,31 @@ function HeroRotator() {
 
   const slide = slides[index];
 
+  // split the title on newlines so we can render stair-step lines
+  const titleLines = (typedTitle || slide.title).split('\n');
+
   return (
     <div className="hero-heading-wrap" key={index}>
-      <h1 className="hero-title fw-bold">{typedTitle}</h1>
-      <p className="hero-desc">{typedDesc}</p>
-      <div className="hero-cta">
-        <Link className="hero-cta-arrow" to={slide.cta.to} aria-label={slide.cta.text}>
-          <img src="/images/arrow.png" className="arrow" alt="arrow" />
-          <span className="hero-cta-label">{slide.cta.text}</span>
-        </Link>
-      </div>
+      {!descOnly && (
+        <h1 className="hero-title fw-bold">
+          {titleLines.map((line, i) => (
+            <span key={i} className={`hero-title-line hero-title-line-${i + 1}`}>
+              {line}
+            </span>
+          ))}
+        </h1>
+      )}
+      {!isTitleOnly && (
+        <>
+          <p className="hero-desc">{typedDesc}</p>
+          <div className="hero-cta">
+            <Link className="hero-cta-arrow" to={slide.cta.to} aria-label={slide.cta.text}>
+              <img src="/images/arrow.png" className="arrow" alt="arrow" />
+              <span className="hero-cta-label">{slide.cta.text}</span>
+            </Link>
+          </div>
+        </>
+      )}
     </div>
   );
 }

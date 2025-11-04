@@ -42,8 +42,7 @@ const DTECNavbar = () => {
     <Navbar expand="lg" className={`${navClass} py-3 ${positionClass}`}>
       <Container>
         <Navbar.Brand as={Link} to="/" className="d-flex align-items-center gap-2">
-          <FaLaptopCode color={scrolled ? '#0A3D62' : '#fff'} size={28} />
-          <span className="fw-bold navbar-brand-text">DTEC Software Solutions</span>
+          <img src="/images/logo.png" alt="D-TEC" className="nav-logo" />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

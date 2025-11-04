@@ -22,7 +22,7 @@ const About = () => (
     </div>
 
     {/* Who we are with image */}
-    <Container style={{ paddingTop: '3rem' }}>
+  <Container className="who-we-are-section" style={{ paddingTop: '3rem' }}>
       <Row className="align-items-center">
         <Col md={6} className="mb-4 mb-md-0">
           <img src="/images/about.jpeg" alt="About DTEC" className="img-fluid rounded shadow" />
@@ -30,7 +30,18 @@ const About = () => (
         <Col md={6}>
           <h2 className="fw-bold mb-2">Who We Are</h2>
           <p className="about-desc">
-            DTEC Software Solutions is dedicated to delivering innovative, reliable, and scalable software products and services. Our mission is to empower businesses with technology that drives growth and efficiency.
+           D-TEC Software Solutions Ltd is a multinational IT services and
+software development company specializing in designing,
+developing, and deploying customized digital solutions for
+government institutions, corporate enterprises, NGOs, and
+international development organizations across East Africa and
+India. Our agile, client-focused approach combines technical excellence
+with deep regional expertise. We are committed to delivering
+innovative, scalable, and secure technologies that empower
+organizations to achieve digital transformation and operational
+efficiency. With offices strategically located in Kerala (India) and Kigali
+(Rwanda), D-TEC has established itself as a trusted partner for
+modern, value-driven ICT solutions.
           </p>
         </Col>
       </Row>

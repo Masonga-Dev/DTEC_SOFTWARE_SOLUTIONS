@@ -21,31 +21,35 @@ const About = () => (
       </div>
     </div>
 
-    {/* Who we are with image */}
-  <Container className="who-we-are-section" style={{ paddingTop: '3rem' }}>
-      <Row className="align-items-center">
-        <Col md={6} className="mb-4 mb-md-0">
-          <img src="/images/about.jpeg" alt="About DTEC" className="img-fluid rounded shadow" />
-        </Col>
-        <Col md={6}>
-          <h2 className="fw-bold mb-2">Who We Are</h2>
-          <p className="about-desc">
-           D-TEC Software Solutions Ltd is a multinational IT services and
-software development company specializing in designing,
-developing, and deploying customized digital solutions for
-government institutions, corporate enterprises, NGOs, and
-international development organizations across East Africa and
-India. Our agile, client-focused approach combines technical excellence
-with deep regional expertise. We are committed to delivering
-innovative, scalable, and secure technologies that empower
-organizations to achieve digital transformation and operational
-efficiency. With offices strategically located in Kerala (India) and Kigali
-(Rwanda), D-TEC has established itself as a trusted partner for
-modern, value-driven ICT solutions.
-          </p>
-        </Col>
-      </Row>
-
+    {/* Who we are with image - full-bleed background */}
+  <div className="who-we-are-section full-bleed" style={{ paddingTop: 0 }}>
+    <div className="who-inner">
+      <Container style={{ paddingTop: '3rem' }}>
+        <Row className="align-items-center">
+          <Col md={6} className="mb-4 mb-md-0">
+            <img src="/images/about.jpeg" alt="About DTEC" className="img-fluid rounded shadow" />
+          </Col>
+          <Col md={6}>
+            <h2 className="fw-bold mb-2">Who We Are</h2>
+            <p className="about-desc">
+             D-TEC Software Solutions Ltd is a multinational IT services and
+    software development company specializing in designing,
+    developing, and deploying customized digital solutions for
+    government institutions, corporate enterprises, NGOs, and
+    international development organizations across East Africa and
+    India. Our agile, client-focused approach combines technical excellence
+    with deep regional expertise. We are committed to delivering
+    innovative, scalable, and secure technologies that empower
+    organizations to achieve digital transformation and operational
+    efficiency. With offices strategically located in Kerala (India) and Kigali
+    (Rwanda), D-TEC has established itself as a trusted partner for
+    modern, value-driven ICT solutions.
+            </p>
+          </Col>
+        </Row>
+      </Container>
+    </div>
+  </div>
       {/* Mission and Vision - use pages-section two-column layout for title + description */}
       <div className="about-mission-vision mb-5 row">
         <div className="col-md-6 mb-4 mb-md-0 about-hover-col">
@@ -74,66 +78,36 @@ modern, value-driven ICT solutions.
         </div>
       </div>
 
-      {/* Objectives - use pages-section heading then keep objectives grid */}
-      <div className="about-objectives mt-5 mb-3">
-        <div className="d-flex align-items-center mb-3 about-title-underline-wrap">
-          <span className="about-icon"><FaTasks size={20} color="#d4145a" /></span>
-          <h3 className="about-title ms-2">Our Objectives</h3>
-          <span className="about-underline ms-2" />
-        </div>
-        <div className="row g-4">
-          <div className="col-md-6 about-hover-col">
-            <div className="objective-item mb-4">
-              <div className="d-flex align-items-start mb-2">
-                <span className="about-icon"><FaHandshake size={18} color="#d4145a" /></span>
-                <div className="about-title-underline-wrap ms-2">
-                  <h5 className="objective-title">Client-Centric Approach</h5>
-                  <span className="about-underline" />
-                </div>
-              </div>
-              <p className="objective-sub mb-0">We prioritize client satisfaction by providing customized software solutions that meet their exact needs.</p>
-            </div>
-          </div>
-          <div className="col-md-6 about-hover-col">
-            <div className="objective-item mb-4">
-              <div className="d-flex align-items-start mb-2">
-                <span className="about-icon"><FaLightbulb size={18} color="#d4145a" /></span>
-                <div className="about-title-underline-wrap ms-2">
-                  <h5 className="objective-title">Innovation & Quality</h5>
-                  <span className="about-underline" />
-                </div>
-              </div>
-              <p className="objective-sub mb-0">We continuously adopt emerging technologies to deliver high performance, reliable software systems.</p>
-            </div>
-          </div>
-          <div className="col-md-6 about-hover-col">
-            <div className="objective-item mb-4">
-              <div className="d-flex align-items-start mb-2">
-                <span className="about-icon"><FaLeaf size={18} color="#d4145a" /></span>
-                <div className="about-title-underline-wrap ms-2">
-                  <h5 className="objective-title">Sustainable Growth</h5>
-                  <span className="about-underline" />
-                </div>
-              </div>
-              <p className="objective-sub mb-0">We aim to create long-term, sustainable growth by continuously improving our technologies, expanding our service portfolio, and fostering lasting client relationships.</p>
-            </div>
-          </div>
-          <div className="col-md-6 about-hover-col">
-            <div className="objective-item mb-4">
-              <div className="d-flex align-items-start mb-2">
-                <span className="about-icon"><FaUsers size={18} color="#d4145a" /></span>
-                <div className="about-title-underline-wrap ms-2">
-                  <h5 className="objective-title">Collaborative Culture</h5>
-                  <span className="about-underline" />
-                </div>
-              </div>
-              <p className="objective-sub mb-0">We nurture teamwork, transparency, and innovation, sharing successes to achieve shared outcomes. We focus on developing cutting-edge software solutions.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </Container>
-  </section>
-);
+      {/* Objectives removed per request - only Mission & Vision kept */}
 
-export default About;
+  {/* Technology Stack - moved here from Contact for dedicated About placement */}
+  <div className="tech-stack-section mt-4">
+    <div className="tech-stack-inner">
+      <h4 className="tech-stack-title">Technology Stack</h4>
+      <div className="tech-grid">
+        <div className="tech-item"><div className="tech-icon">⚛️</div><div className="tech-label">React</div></div>
+        <div className="tech-item"><div className="tech-icon">🅽</div><div className="tech-label">Node.js</div></div>
+        <div className="tech-item"><div className="tech-icon">🐍</div><div className="tech-label">Python</div></div>
+        <div className="tech-item"><div className="tech-icon">🟦</div><div className="tech-label">Laravel</div></div>
+        <div className="tech-item"><div className="tech-icon">🐘</div><div className="tech-label">PostgreSQL</div></div>
+        <div className="tech-item"><div className="tech-icon">🟠</div><div className="tech-label">MySQL</div></div>
+        <div className="tech-item"><div className="tech-icon">🍃</div><div className="tech-label">MongoDB</div></div>
+        <div className="tech-item"><div className="tech-icon">☁️</div><div className="tech-label">AWS</div></div>
+        <div className="tech-item"><div className="tech-icon">🔷</div><div className="tech-label">Azure</div></div>
+        <div className="tech-item"><div className="tech-icon">📱</div><div className="tech-label">Flutter</div></div>
+        <div className="tech-item"><div className="tech-icon">📱</div><div className="tech-label">React Native</div></div>
+        <div className="tech-item"><div className="tech-icon">🐳</div><div className="tech-label">Docker</div></div>
+      </div>
+      <div className="tech-notes">
+        <p className="mb-1"><strong>Backend:</strong> PHP, Laravel, Python (Django/Flask), Node.js, Java</p>
+        <p className="mb-1"><strong>Frontend:</strong> React, Angular, Vue.js, HTML5, CSS3, Bootstrap</p>
+        <p className="mb-1"><strong>Mobile:</strong> Flutter, React Native, Kotlin, Swift</p>
+        <p className="mb-1"><strong>Database:</strong> PostgreSQL, MySQL, MongoDB, MS SQL Server</p>
+        <p className="mb-1"><strong>Cloud:</strong> AWS, Azure, Google Cloud, DigitalOcean</p>
+      </div>
+    </div>
+    </div>
+    </section>
+    );
+
+  export default About;

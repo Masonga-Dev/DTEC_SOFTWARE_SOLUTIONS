@@ -3,11 +3,18 @@ import { Container, Row, Col } from 'react-bootstrap';
 import { FaFacebook, FaTwitter, FaLinkedin, FaGithub } from 'react-icons/fa';
 
 const Footer = () => (
-  <footer style={{ background: '#0A3D62', color: '#fff', padding: '2rem 0' }}>
+  <footer style={{
+    backgroundImage: "linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)), url('/images/who-we-are-bg.jpg')",
+    backgroundSize: 'cover',
+    backgroundPosition: 'center center',
+    color: '#fff',
+    padding: '0 0 1rem' /* remove top padding so footer sits directly under previous section */
+  }}>
     <Container>
       <Row>
         <Col md={4} className="mb-3">
-          <h5>DTEC Software Solutions</h5>
+            <img src="/images/logo.png" alt="DTEC logo" className="footer-logo" />
+            <h5>DTEC Software Solutions</h5>
           <p>Innovative Software. Reliable Solutions.</p>
         </Col>
         <Col md={4} className="mb-3">

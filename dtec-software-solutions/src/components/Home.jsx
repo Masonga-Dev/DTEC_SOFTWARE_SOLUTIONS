@@ -14,8 +14,6 @@ const Home = () => {
         <Container className="hero-content">
           <div className="hero-two-col">
             <div className="hero-col hero-col-left">
-              {/* brand logo above the title */}
-              <img src="/images/logo.png" alt="D-TEC logo" className="hero-logo" />
               <HeroRotator isTitleOnly />
             </div>
             <div className="hero-col hero-col-right">
@@ -26,7 +24,7 @@ const Home = () => {
       </div>
       <Container className="py-5" style={{ maxWidth: 1100 }}>
         {/* About intro: keep About on the Home page only. Other page intros moved into their respective components. */}
-        <div className="pages-section mb-4">
+        <div className="pages-section mb-4 pages-no-bg">
           <div className="row align-items-start">
             <div className="col-md-4 pages-title-col">
               <h2 className="pages-title fw-bold">About Us</h2>
@@ -52,6 +50,33 @@ const Home = () => {
               <Button as={Link} to="/about" variant="info" className="text-white" style={{ background: '#00B8D9' }}>
                 Learn More About Us
               </Button>
+            </div>
+          </div>
+        </div>
+        {/* Technology Stack - inserted on Home between Products and Contact */}
+        <div className="tech-stack-section mt-4">
+          <div className="tech-stack-inner">
+            <h4 className="tech-stack-title">Technology Stack</h4>
+            <div className="tech-grid">
+              <div className="tech-item"><div className="tech-icon">⚛️</div><div className="tech-label">React</div></div>
+              <div className="tech-item"><div className="tech-icon">🅽</div><div className="tech-label">Node.js</div></div>
+              <div className="tech-item"><div className="tech-icon">🐍</div><div className="tech-label">Python</div></div>
+              <div className="tech-item"><div className="tech-icon">🟦</div><div className="tech-label">Laravel</div></div>
+              <div className="tech-item"><div className="tech-icon">🐘</div><div className="tech-label">PostgreSQL</div></div>
+              <div className="tech-item"><div className="tech-icon">🟠</div><div className="tech-label">MySQL</div></div>
+              <div className="tech-item"><div className="tech-icon">🍃</div><div className="tech-label">MongoDB</div></div>
+              <div className="tech-item"><div className="tech-icon">☁️</div><div className="tech-label">AWS</div></div>
+              <div className="tech-item"><div className="tech-icon">🔷</div><div className="tech-label">Azure</div></div>
+              <div className="tech-item"><div className="tech-icon">📱</div><div className="tech-label">Flutter</div></div>
+              <div className="tech-item"><div className="tech-icon">📱</div><div className="tech-label">React Native</div></div>
+              <div className="tech-item"><div className="tech-icon">🐳</div><div className="tech-label">Docker</div></div>
+            </div>
+            <div className="tech-notes">
+              <p className="mb-1"><strong>Backend:</strong> PHP, Laravel, Python (Django/Flask), Node.js, Java</p>
+              <p className="mb-1"><strong>Frontend:</strong> React, Angular, Vue.js, HTML5, CSS3, Bootstrap</p>
+              <p className="mb-1"><strong>Mobile:</strong> Flutter, React Native, Kotlin, Swift</p>
+              <p className="mb-1"><strong>Database:</strong> PostgreSQL, MySQL, MongoDB, MS SQL Server</p>
+              <p className="mb-1"><strong>Cloud:</strong> AWS, Azure, Google Cloud, DigitalOcean</p>
             </div>
           </div>
         </div>

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import './ClientShowcase.css';
 const Home = () => {
   return (
     <section id="home">
@@ -58,7 +59,10 @@ const Home = () => {
             <h4 className="tech-stack-title">Technology Stack</h4>
             <div className="tech-grid">
               <div className="tech-item"><div className="tech-icon">⚛️</div><div className="tech-label">React</div></div>
-              <div className="tech-item"><div className="tech-icon">🅽</div><div className="tech-label">Node.js</div></div>
+              <div className="tech-item"><div className="tech-icon">�️</div><div className="tech-label">Angular</div></div>
+              <div className="tech-item"><div className="tech-icon">🟩</div><div className="tech-label">Vue.js</div></div>
+              <div className="tech-item"><div className="tech-icon">�🅽</div><div className="tech-label">Node.js</div></div>
+              <div className="tech-item"><div className="tech-icon">☕️</div><div className="tech-label">Java</div></div>
               <div className="tech-item"><div className="tech-icon">🐍</div><div className="tech-label">Python</div></div>
               <div className="tech-item"><div className="tech-icon">🟦</div><div className="tech-label">Laravel</div></div>
               <div className="tech-item"><div className="tech-icon">🐘</div><div className="tech-label">PostgreSQL</div></div>
@@ -66,20 +70,102 @@ const Home = () => {
               <div className="tech-item"><div className="tech-icon">🍃</div><div className="tech-label">MongoDB</div></div>
               <div className="tech-item"><div className="tech-icon">☁️</div><div className="tech-label">AWS</div></div>
               <div className="tech-item"><div className="tech-icon">🔷</div><div className="tech-label">Azure</div></div>
+              <div className="tech-item"><div className="tech-icon">🐬</div><div className="tech-label">DigitalOcean</div></div>
               <div className="tech-item"><div className="tech-icon">📱</div><div className="tech-label">Flutter</div></div>
               <div className="tech-item"><div className="tech-icon">📱</div><div className="tech-label">React Native</div></div>
               <div className="tech-item"><div className="tech-icon">🐳</div><div className="tech-label">Docker</div></div>
             </div>
-            <div className="tech-notes">
-              <p className="mb-1"><strong>Backend:</strong> PHP, Laravel, Python (Django/Flask), Node.js, Java</p>
-              <p className="mb-1"><strong>Frontend:</strong> React, Angular, Vue.js, HTML5, CSS3, Bootstrap</p>
-              <p className="mb-1"><strong>Mobile:</strong> Flutter, React Native, Kotlin, Swift</p>
-              <p className="mb-1"><strong>Database:</strong> PostgreSQL, MySQL, MongoDB, MS SQL Server</p>
-              <p className="mb-1"><strong>Cloud:</strong> AWS, Azure, Google Cloud, DigitalOcean</p>
+
+            {/* Tech cards grid without icons */}
+            <div className="tech-card-grid" role="list">
+              <div className="tech-card" role="listitem">
+                <div className="tech-card-title">Backend</div>
+                <ul className="tech-card-list">
+                  <li>Node.js</li>
+                  <li>Python</li>
+                  <li>Laravel</li>
+                  <li>Java</li>
+                </ul>
+              </div>
+              <div className="tech-card" role="listitem">
+                <div className="tech-card-title">Frontend</div>
+                <ul className="tech-card-list">
+                  <li>React</li>
+                  <li>Angular</li>
+                  <li>Vue.js</li>
+                  <li>HTML5 / CSS3</li>
+                </ul>
+              </div>
+              <div className="tech-card" role="listitem">
+                <div className="tech-card-title">Mobile</div>
+                <ul className="tech-card-list">
+                  <li>Flutter</li>
+                  <li>React Native</li>
+                  <li>Kotlin</li>
+                  <li>Swift</li>
+                </ul>
+              </div>
+              <div className="tech-card" role="listitem">
+                <div className="tech-card-title">Database</div>
+                <ul className="tech-card-list">
+                  <li>PostgreSQL</li>
+                  <li>MySQL</li>
+                  <li>MongoDB</li>
+                  <li>MS SQL Server</li>
+                </ul>
+              </div>
+              <div className="tech-card" role="listitem">
+                <div className="tech-card-title">Cloud</div>
+                <ul className="tech-card-list">
+                  <li>AWS</li>
+                  <li>Azure</li>
+                  <li>Google Cloud</li>
+                  <li>DigitalOcean</li>
+                </ul>
+              </div>
             </div>
+
           </div>
         </div>
       </Container>
+
+      {/* Client Showcase Section */}
+      <div className="client-showcase-section mt-5">
+        <h4 className="client-showcase-title">Our Clients</h4>
+        <div className="client-carousel">
+          <div className="client-card corporate">
+            <img src="/images/bki.png" alt="BK Insurance" className="client-logo" />
+            <h5 className="client-title">BK Insurance</h5>
+            <p className="client-subtitle">Financial Technology Solutions</p>
+          </div>
+          <div className="client-card government">
+            <img src="/images/rra.png" alt="RRA" className="client-logo" />
+            <h5 className="client-title">Rwanda Revenue Authority</h5>
+            <p className="client-subtitle">Services and Solutions for Government</p>
+          </div>
+          <div className="client-card ngo">
+            <img src="/images/plan-international.png" alt="Plan International" className="client-logo" />
+            <h5 className="client-title">Plan International</h5>
+            <p className="client-subtitle">NGO Digital Transformation</p>
+          </div>
+          <div className="client-card government">
+            <img src="/images/gov.png" alt="Supreme Court of Rwanda" className="client-logo" />
+            <h5 className="client-title">Supreme Court of Rwanda</h5>
+            <p className="client-subtitle">Judicial System Solutions</p>
+          </div>
+          <div className="client-card government">
+            <img src="/images/NLA.png" alt="National Land Authority" className="client-logo" />
+            <h5 className="client-title">National Land Authority</h5>
+            <p className="client-subtitle">Land Management Systems</p>
+          </div>
+          <div className="client-card government">
+            <img src="/images/Healthcare.jpg" alt="Healthcare Sector" className="client-logo" />
+            <h5 className="client-title">Healthcare Sector</h5>
+            <p className="client-subtitle">Health Management System and Hospital IT systems deployment and maintenance
+</p>
+          </div>
+        </div>
+      </div>
     </section>
   );
 };

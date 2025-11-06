@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Navbar, Nav, Container, Button } from 'react-bootstrap';
+import { Navbar, Nav, Container, Button, Row, Col } from 'react-bootstrap';
 import { FaLaptopCode } from 'react-icons/fa';
 import { Link, useLocation } from 'react-router-dom';
 import ProductMegaMenu from './ProductMegaMenu';
@@ -148,41 +148,54 @@ const DTECNavbar = () => {
               />
             </div>
             <Nav.Link as={Link} to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>Contact</Nav.Link>
-            <div className="nav-item dropdown">
+            <div className="nav-item why-choose-container" ref={whyChooseRef}>
               <Nav.Link
-                className={`dropdown-toggle`}
+                className={`dropdown-toggle ${showWhyChooseUs ? 'active' : ''}`}
                 onClick={() => setShowWhyChooseUs(!showWhyChooseUs)}
               >
                 Why Choose D-TEC
               </Nav.Link>
-              <div className={`why-choose-dropdown ${showWhyChooseUs ? 'show' : ''}`}>
-                <div className="why-choose-content">
-                  <div className="why-choose-item">
-                    <h5>Proven Track Record</h5>
-                    <p>Demonstrated success with national-level government institutions and mission-critical systems across East Africa and India.</p>
-                  </div>
-                  <div className="why-choose-item">
-                    <h5>Regional Expertise</h5>
-                    <p>Deep understanding of African and Indian ICT ecosystems, regulatory environments, and development priorities.</p>
-                  </div>
-                  <div className="why-choose-item">
-                    <h5>End-to-End Capabilities</h5>
-                    <p>Complete service delivery from system design, development, integration, and deployment through ongoing support and maintenance.</p>
-                  </div>
-                  <div className="why-choose-item">
-                    <h5>Security & Scalability</h5>
-                    <p>Focus on security, usability, and scalable architecture to protect your investments and support organizational growth.</p>
-                  </div>
-                  <div className="why-choose-item">
-                    <h5>Dedicated Multinational Team</h5>
-                    <p>Expert developers, analysts, and consultants committed to understanding your organization's unique challenges and delivering solutions that matter.</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </Nav>
         </Navbar.Collapse>
       </Container>
+      {/* Why Choose D-TEC Dropdown */}
+      <div className={`why-choose-dropdown ${showWhyChooseUs ? 'show' : ''}`}>
+        <div className="why-choose-overlay" onClick={() => setShowWhyChooseUs(false)} />
+        <div className="why-choose-content">
+          <Container>
+            <Row>
+              <Col lg={4} className="why-choose-intro">
+                <h3>Why Choose Us</h3>
+                <p>Excellence in digital transformation through proven expertise and innovative solutions.</p>
+                <div className="why-choose-accent" />
+              </Col>
+              <Col lg={8} className="why-choose-grid">
+                <div className="why-choose-item">
+                  <h5>Proven Track Record</h5>
+                  <p>Demonstrated success with national-level government institutions and mission-critical systems across East Africa and India.</p>
+                </div>
+                <div className="why-choose-item">
+                  <h5>Regional Expertise</h5>
+                  <p>Deep understanding of African and Indian ICT ecosystems, regulatory environments, and development priorities.</p>
+                </div>
+                <div className="why-choose-item">
+                  <h5>End-to-End Capabilities</h5>
+                  <p>Complete service delivery from system design, development, integration, and deployment through ongoing support and maintenance.</p>
+                </div>
+                <div className="why-choose-item">
+                  <h5>Security & Scalability</h5>
+                  <p>Focus on security, usability, and scalable architecture to protect your investments and support organizational growth.</p>
+                </div>
+                <div className="why-choose-item">
+                  <h5>Dedicated Multinational Team</h5>
+                  <p>Expert developers, analysts, and consultants committed to understanding your organization's unique challenges and delivering solutions that matter.</p>
+                </div>
+              </Col>
+            </Row>
+          </Container>
+        </div>
+      </div>
     </Navbar>
       <ProductMegaMenu show={showMegaMenu} onClose={() => setShowMegaMenu(false)} />
     </>

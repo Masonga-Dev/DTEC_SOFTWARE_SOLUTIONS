@@ -736,43 +736,104 @@ footer a[href^="tel:"]:hover, footer a[href^="tel:"]:focus {
 }
 
 /* Why Choose D-TEC Dropdown */
+.why-choose-container {
+  position: relative;
+}
+
 .why-choose-dropdown {
-  position: absolute;
-  top: 100%;
+  position: fixed;
+  top: 80px;
   left: 0;
   width: 100%;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
   background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(8px);
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-10px);
-  transition: all 0.3s ease-in-out;
+  transform: translateY(-10px) scale(0.98);
+  transition: all 0.3s ease-out;
   z-index: 1049;
+  padding: 2rem 0;
 
   &.show {
     opacity: 1;
     visibility: visible;
-    transform: translateY(0);
+    transform: translateY(0) scale(1);
   }
 }
 
+.why-choose-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: -1;
+}
+
 .why-choose-content {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.why-choose-intro {
+  padding: 1.5rem;
+  position: relative;
+
+  h3 {
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+}
+
+.why-choose-accent {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2px;
+  height: 80%;
+  background: linear-gradient(180deg, #00B8D9, rgba(0,240,255,0.3));
+  border-radius: 2px;
+}
+
+.why-choose-grid {
+  padding: 1.5rem;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
 }
 
 .why-choose-item {
-  padding: 1rem;
+  padding: 1.25rem;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   transition: all 0.3s ease;
+  opacity: 0;
+  transform: translateY(10px);
+
+  .show & {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @for $i from 1 through 5 {
+    &:nth-child(#{$i}) {
+      transition-delay: #{$i * 0.05}s;
+    }
+  }
 
   &:hover {
     background: rgba(0, 184, 217, 0.1);
@@ -783,7 +844,7 @@ footer a[href^="tel:"]:hover, footer a[href^="tel:"]:focus {
   h5 {
     color: #00B8D9;
     font-weight: 700;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
     font-size: 1.1rem;
   }
 
@@ -792,6 +853,34 @@ footer a[href^="tel:"]:hover, footer a[href^="tel:"]:focus {
     font-size: 0.95rem;
     line-height: 1.6;
     margin: 0;
+  }
+}
+
+@media (max-width: 991px) {
+  .why-choose-dropdown {
+    top: 60px;
+    padding: 1rem 0;
+  }
+
+  .why-choose-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+  }
+
+  .why-choose-intro {
+    padding: 1rem;
+
+    h3 {
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .why-choose-accent {
+    display: none;
   }
 }
 
@@ -916,9 +1005,10 @@ footer a[href^="tel:"]:hover, footer a[href^="tel:"]:focus {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: auto;
+  width: 100%;
   height: 100%;
   min-width: 100%;
+  min-height: 100%;
   transform: translate(-50%, -50%);
   object-fit: cover;
   z-index: 1;
@@ -1184,8 +1274,11 @@ footer a[href^="tel:"]:hover, footer a[href^="tel:"]:focus {
 
 /* Services page styles */
 .service-hero-section.hero-video-section {
-  height: 48vh;
-  min-height: 360px;
+  height: 100vh;
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
 }
 .services-page {
   /* use a pure black background per request for maximum contrast */
@@ -1761,6 +1854,9 @@ footer a[href^="tel:"]:hover, footer a[href^="tel:"]:focus {
     text-align: center;
     max-width: 800px;
     margin: 0 auto 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     
     .category-title {
       font-size: 2.5rem;
@@ -1768,6 +1864,7 @@ footer a[href^="tel:"]:hover, footer a[href^="tel:"]:focus {
       margin-bottom: 1rem;
       font-weight: 800;
       line-height: 1.2;
+      text-align: center;
 
       &::after {
         content: '';
@@ -1784,6 +1881,9 @@ footer a[href^="tel:"]:hover, footer a[href^="tel:"]:focus {
       color: rgba(255,255,255,0.9);
       font-size: 1.1rem;
       line-height: 1.8;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
     }
   }
 

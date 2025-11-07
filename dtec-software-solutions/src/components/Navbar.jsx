@@ -121,7 +121,7 @@ const DTECNavbar = () => {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ms-auto align-items-center gap-3">
             <Nav.Link as={Link} to="/" className={location.pathname === '/' ? 'active' : ''}>Home</Nav.Link>
-            <Nav.Link as={Link} to="/about" className={location.pathname === '/about' ? 'active' : ''}>About</Nav.Link>
+            <Nav.Link as={Link} to="/about" className={location.pathname === '/about' ? 'active' : ''}>About Us</Nav.Link>
             <Nav.Link as={Link} to="/services" className={location.pathname === '/services' ? 'active' : ''}>Services</Nav.Link>
             <div 
               ref={menuRef}
@@ -147,7 +147,7 @@ const DTECNavbar = () => {
                 containerRef={menuRef}
               />
             </div>
-            <Nav.Link as={Link} to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>Contact</Nav.Link>
+            <Nav.Link as={Link} to="/contact" className={location.pathname === '/contact' ? 'active' : ''}>Contact Us</Nav.Link>
             <div className="nav-item why-choose-container" ref={whyChooseRef}>
               <Nav.Link
                 className={`dropdown-toggle ${showWhyChooseUs ? 'active' : ''}`}

@@ -29,9 +29,9 @@ const Footer = () => (
         </Col>
         <Col md={4} className="mb-3">
           <h6>Rwanda Contact</h6>
-          <p>Email: Sales@dtec.rw<br />Phone: +25078088777</p>
+          <p><a href="mailto: sales@dtec.rw">Email: Sales@dtec.rw </a><br /><a href="tel: +25078088777">Phone: +25078088777</a></p>
           <h6>India Contact </h6>
-           <p>Email: Radhika@dtecsoftwaresolutions.com<br />Phone: +91 97475 09054</p>
+           <p><a href="mailto: radhika@dtecsoftwaresolutions.com">Email: radhika@dtecsoftwaresolutions.com</a><br /><a href = "tel: +91 97475 09054">Phone: +91 97475 09054</a></p>
           <div className="d-flex gap-3">
             <a href="#" className="text-white"><FaFacebook size={22} /></a>
             <a href="#" className="text-white"><FaTwitter size={22} /></a>

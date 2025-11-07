@@ -28,8 +28,10 @@ const Footer = () => (
           </ul>
         </Col>
         <Col md={4} className="mb-3">
-          <h6>Contact</h6>
+          <h6>Rwanda Contact</h6>
           <p>Email: Sales@dtec.rw<br />Phone: +25078088777</p>
+          <h6>India Contact </h6>
+           <p>Email: Radhika@dtecsoftwaresolutions.com<br />Phone: +91 97475 09054</p>
           <div className="d-flex gap-3">
             <a href="#" className="text-white"><FaFacebook size={22} /></a>
             <a href="#" className="text-white"><FaTwitter size={22} /></a>

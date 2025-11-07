@@ -140,11 +140,11 @@ const Products = ({ sample = false }) => {
                 <div className={`product-row mb-5 ${reverse ? 'reverse' : ''}`} key={product.name}>
                   <div className="product-image">
                     <img 
-                      src={`/images/products/${product.name.toLowerCase().replace(/[^a-z0-9]+/g, '-')}.jpg`}
+                      src={product.img}
                       alt={product.name}
                       className="img-fluid rounded product-hero-img"
                       onError={(e) => {
-                        e.target.src = '/images/products/default-product.jpg';
+                        e.target.src = 'https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80';
                       }}
                     />
                   </div>

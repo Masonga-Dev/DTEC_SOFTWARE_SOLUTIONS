@@ -1,6 +1,27 @@
 // Centralized product catalog with stable slugs for routing
 export const products = [
   {
+    slug: 'e-learning-platform',
+    name: 'E-Learning Platform',
+    img: '/images/e-learning.jpg',
+    desc: 'Custom learning management system with online courses, assessments, and certification. Interactive content delivery with progress tracking and analytics.',
+    demoUrl: null,
+  },
+  {
+    slug: 'mobile-apps',
+    name: 'Mobile Apps',
+    img: 'https://images.unsplash.com/photo-1542641728-6ca359b085f4?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=465',
+    desc: 'Tailored mobile applications for business, government, and NGO use cases. Cross-platform development with robust backend integration.',
+    demoUrl: null,
+  },
+  {
+    slug: 'e-procurement-portal',
+    name: 'E-Procurement Portal',
+    img: 'https://plus.unsplash.com/premium_photo-1661454577337-7738fd3dd478?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=992',
+    desc: 'Digital platform for managing bids, tenders, and supplier communication. Streamline procurement processes with automated workflows and compliance tracking.',
+    demoUrl: null,
+  },
+  {
     slug: 'dtec-crm',
     name: 'D-CRMS',
     img: 'https://images.unsplash.com/photo-1753351055117-f24d8baa682e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1031',

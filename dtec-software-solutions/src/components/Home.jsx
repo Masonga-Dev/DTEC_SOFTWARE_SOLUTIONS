@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './ClientShowcase.css';
+import { products } from '../data/products.js';
 const Home = () => {
   return (
     <section id="home">
